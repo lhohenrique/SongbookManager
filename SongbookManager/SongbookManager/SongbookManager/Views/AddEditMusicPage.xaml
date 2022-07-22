@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage x:Name="AddEditMusicContentPage"
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:converters="clr-namespace:SongbookManager.Converters"
+            xmlns:resource="clr-namespace:SongbookManager.Resx"
+            xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            Style="{StaticResource BaseContentPage}"
+            Shell.TabBarIsVisible="False"
+            x:Class="SongbookManager.Views.AddEditMusicPage">
+
+    <TabbedPage.Resources>
+        <converters:ReverseBoolConverter x:Key="reverseBoolConverter"/>
+    </TabbedPage.Resources>
+    
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resource:AppResources.Save}" Order="Primary" Command="{Binding SaveMusicCommand}" IconImageSource="save.png"/>
+    </TabbedPage.ToolbarItems>
+
+    <ContentPage Title="{x:Static resource:AppResources.Details}" Style="{StaticResource BaseContentPage}">
+        <ScrollView>
+            <StackLayout Spacing="10">
+                <controls:MTAdView x:Name="AddEditMusicDetailAds" IsVisible="true" AdsId="ca-app-pub-4649626975914217/2317560399">
+                    <controls:MTAdView.HeightRequest>
+                        <x:OnIdiom>
+                            <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                            <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                            <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                        </x:OnIdiom>
+                    </controls:MTAdView.HeightRequest>
+                </controls:MTAdView>
+                
+                <StackLayout Padding="10,0" Spacing="0">
+                    <Label Text="{x:Static resource:AppResources.Name}"
+                           Style="{StaticResource SecondaryLabel}"></Label>
+                    <Entry Text="{Binding Name}"></Entry>
+
+                    <Label Text="{x:Static resource:AppResources.Artist}" Margin="0,10,0,0"
+                           Style="{StaticResource SecondaryLabel}"></Label>
+                    <Entry Text="{Binding Author}"></Entry>
+
+                    <Label Text="{x:Static resource:AppResources.Lyric}" Margin="0,10,0,0"
+                           Style="{StaticResource SecondaryLabel}"></Label>
+                    <Editor Text="{Binding Lyrics}" AutoSize="TextChanges"></Editor>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage Title="{x:Static resource:AppResources.Chords}" Style="{StaticResource BaseContentPage}">
+        <ScrollView>
+            <StackLayout Spacing="10">
+                <controls:MTAdView x:Name="AddEditMusicChordsAds" IsVisible="true" AdsId="ca-app-pub-4649626975914217/2317560399">
+                    <controls:MTAdView.HeightRequest>
+                        <x:OnIdiom>
+                            <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                            <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                            <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                        </x:OnIdiom>
+                    </controls:MTAdView.HeightRequest>
+                </controls:MTAdView>
+
+                <StackLayout Orientation="Horizontal" Padding="10,0">
+                    <Label Text="{x:Static resource:AppResources.Key}"
+                           Style="{StaticResource SecondaryLabel}"
+                           Padding="0,9,0,0"></Label>
+                    <Picker ItemsSource="{Binding KeyList}" SelectedItem="{Binding SelectedKey}" Title="{x:Static resource:AppResources.Key}" Margin="5,0,0,0" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                
+                <StackLayout Padding="10">
+                    <Editor Text="{Binding Chords}" AutoSize="TextChanges" Placeholder="{x:Static resource:AppResources.Chords}"></Editor>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>
+
+    <ContentPage Title="{x:Static resource:AppResources.Keys}" Style="{StaticResource BaseContentPage}">
+        <StackLayout>
+            <controls:MTAdView x:Name="AddEditMusicKeysAds" IsVisible="true" AdsId="ca-app-pub-4649626975914217/2317560399">
+                <controls:MTAdView.HeightRequest>
+                    <x:OnIdiom>
+                        <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                        <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                        <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                    </x:OnIdiom>
+                </controls:MTAdView.HeightRequest>
+            </controls:MTAdView>
+            
+            <Label Text="{x:Static resource:AppResources.ThereAreNoRegisteredSharedAccessSingers}"
+                   Style="{StaticResource SecondaryLabel}"
+                   HorizontalTextAlignment="Center" HorizontalOptions="Center"
+                   Margin="0,10,0,0" Padding="10"
+                   IsVisible="{Binding HasSingers, Converter={StaticResource reverseBoolConverter}}"></Label>
+
+            <ListView x:Name="UserListListView"
+                      SeparatorVisibility="Default"
+                      HasUnevenRows="True"
+                      SelectionMode="None"
+                      ItemsSource="{Binding UserList, Mode=OneWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout VerticalOptions="FillAndExpand"
+                                         BackgroundColor="White"
+                                         Orientation="Horizontal"
+                                         Padding="10">
+                                <Label Text="{Binding UserName}"
+                                       Style="{StaticResource MediumLabel}"
+                                       VerticalOptions="Center"/>
+                                <Picker ItemsSource="{Binding Source={x:Reference AddEditMusicContentPage}, Path=BindingContext.KeyList}"
+                                        SelectedItem="{Binding Key}" Title="{x:Static resource:AppResources.Key}"
+                                        HorizontalTextAlignment="Center" HorizontalOptions="EndAndExpand"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        
+        <!--<StackLayout BindableLayout.ItemsSource="{Binding UserList}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="45"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding UserName}"
+                                FontSize="14"
+                                VerticalOptions="Center"
+                                TextColor="Black"/>
+                            <Picker ItemsSource="{Binding Source={x:Reference AddEditMusicContentPage}, Path=BindingContext.KeyList}"
+                                    SelectedItem="{Binding Key}" Title="Tom"
+                                    Grid.Column="1"/>
+                        </Grid>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>-->
+    </ContentPage>
+</TabbedPage>

@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="br.com.lhohenrique.songfolderlite" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="27" android:targetSdkVersion="30" />
+	<application android:label="Song Folder Lite" android:theme="@style/MainTheme" android:icon="@drawable/icone">
+		<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-4649626975914217~2591773001"></meta-data>
+	</application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+</manifest>

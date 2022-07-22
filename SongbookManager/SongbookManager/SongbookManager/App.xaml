@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SongbookManager.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseContentPage" TargetType="ContentPage">
+                <Setter Property="BackgroundColor" Value="#edeff1"/>
+                <Setter Property="Shell.BackgroundColor" Value="#5B6677"/>
+                <Setter Property="Shell.ForegroundColor" Value="#FFFFFF"/>
+                <Setter Property="Shell.TitleColor" Value="#FFFFFF"/>
+            </Style>
+
+            <Style TargetType="TabbedPage" ApplyToDerivedTypes="True">
+                <Setter Property="BarBackgroundColor" Value="#A0ACBD"/>
+                <Setter Property="BarTextColor" Value="White"/>
+            </Style>
+
+            <Style x:Key="BaseLabel" TargetType="Label">
+                <Setter Property="FontFamily" Value="Verdana"/>
+                <Setter Property="TextColor" Value="#131516"/>
+            </Style>
+
+            <Style x:Key="TitleLabel" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="Title"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="PrimaryLabel" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="Large"/>
+            </Style>
+
+            <Style x:Key="SecondaryLabel" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="Opacity" Value="0.6"/>
+            </Style>
+
+            <Style x:Key="MediumLabel" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="FontFamily" Value="Verdana"/>
+                <Setter Property="TextColor" Value="#131516"/>
+                <Setter Property="PlaceholderColor" Value="LightGray" />
+            </Style>
+
+            <Style TargetType="Editor">
+                <Setter Property="FontFamily" Value="Verdana"/>
+                <Setter Property="TextColor" Value="#131516"/>
+                <Setter Property="PlaceholderColor" Value="LightGray" />
+            </Style>
+
+            <Style TargetType="Picker">
+                <Setter Property="FontFamily" Value="Verdana"/>
+                <Setter Property="TextColor" Value="#131516"/>
+                <Setter Property="TitleColor" Value="LightGray"/>
+            </Style>
+
+            <Style x:Key="BaseButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#5B6677"/>
+                <Setter Property="TextColor" Value="#FFFFFF"/>
+            </Style>
+
+            <Style x:Key="MainButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+
+            <Style x:Key="TransparentButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="TextColor" Value="#131516"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Body"/>
+                <Setter Property="TextTransform" Value="None"/>
+            </Style>
+
+            <Style x:Key="FloatingButton" TargetType="Button" BasedOn="{StaticResource BaseButton}">
+                <Setter Property="CornerRadius" Value="100"/>
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="TextTransform" Value="None"/>
+                <Setter Property="WidthRequest" Value="55"/>
+                <Setter Property="HeightRequest" Value="55"/>
+                <Setter Property="Padding" Value="0,0,0,3"/>
+                <Setter Property="Text" Value="+"/>
+            </Style>
+
+            <Style x:Key="IconListButton" TargetType="ImageButton">
+                <Setter Property="WidthRequest" Value="25"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

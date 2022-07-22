@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Name="MusicsPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:SongbookManager.Resx"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+             Style="{StaticResource BaseContentPage}"
+             x:Class="SongbookManager.Views.MusicPage">
+
+    <ContentPage.Resources>
+        <Color x:Key="DarkButtonBackground">#921813</Color>
+        <Style x:Key="FABPrimary" TargetType="Button">
+            <Setter Property="CornerRadius" Value="100"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource DarkButtonBackground}"/>
+            <Setter Property="HeightRequest" Value="55"/>
+            <Setter Property="WidthRequest" Value="55"/>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resource:AppResources.Share}" IconImageSource="share.png" Order="Primary" Command="{Binding ShareCommand}"/>
+        <!--<ToolbarItem Text="+" Order="Primary" Command="{Binding NewMusicCommand}"/>-->
+        <ToolbarItem Text="{x:Static resource:AppResources.SortByAlphabet}" Order="Secondary" Command="{Binding AlphabeticalOrderCommand}"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.SortByMostRecent}" Order="Secondary" Command="{Binding MostRecentOrderCommand}"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.SortByOldest}" Order="Secondary" Command="{Binding OldestOrderCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <RelativeLayout>
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+                <StackLayout Spacing="2">
+                    <StackLayout Orientation="Horizontal">
+                        <SearchBar x:Name="MusicSearchBar" Placeholder="{x:Static resource:AppResources.Search}" Text="{Binding SearchText}"  TextChanged="MusicSearchBar_TextChanged" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+
+                    <StackLayout>
+                        <controls:MTAdView x:Name="MusicPageAds" IsVisible="true" AdsId="ca-app-pub-4649626975914217/2317560399">
+                            <controls:MTAdView.HeightRequest>
+                                <x:OnIdiom>
+                                    <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                                    <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                                    <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                                </x:OnIdiom>
+                            </controls:MTAdView.HeightRequest>
+                        </controls:MTAdView>
+                    </StackLayout>
+
+                    <RefreshView IsRefreshing="{Binding IsUpdating, Mode=OneWay}" Command="{Binding UpdateMusicListCommand}" Padding="0,0,0,2">
+                        <ListView x:Name="MusicPageMusicListListView"
+                                  SeparatorVisibility="Default"
+                                  SelectedItem="{Binding SelectedMusic}"
+                                  ItemsSource="{Binding MusicList, Mode=OneWay}"
+                                  HasUnevenRows="True">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout BackgroundColor="White"
+                                                     Orientation="Vertical"
+                                                     Padding="10,5">
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="{Binding Name}"
+                                                       Style="{StaticResource PrimaryLabel}"/>
+                                                <ImageButton Source="edit.png" HorizontalOptions="EndAndExpand" Margin="0,0,10,0"
+                                                             Style="{StaticResource IconListButton}" IsVisible="false"
+                                                             Command="{Binding Source={x:Reference MusicsPage}, Path=BindingContext.EditMusicCommand}"
+                                                             CommandParameter="{Binding }"/>
+                                                <ImageButton Source="delete.png" HorizontalOptions="End"
+                                                             Style="{StaticResource IconListButton}" IsVisible="false"
+                                                             Command="{Binding Source={x:Reference MusicsPage}, Path=BindingContext.RemoveMusicCommand}"
+                                                             CommandParameter="{Binding }"/>
+                                            </StackLayout>
+                                            <Label Text="{Binding Author}"
+                                                   Style="{StaticResource SecondaryLabel}"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </RefreshView>
+                </StackLayout>
+            </ContentView>
+
+            <Button x:Name="AddMusicButton"
+                    Style="{StaticResource FloatingButton}"
+                    Command="{Binding NewMusicCommand}"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-70}"  
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-70}"/>
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>

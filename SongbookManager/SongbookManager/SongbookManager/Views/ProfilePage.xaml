@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:SongbookManager.Resx"
+             Shell.NavBarIsVisible="False"
+             Style="{StaticResource BaseContentPage}"
+             x:Class="SongbookManager.Views.ProfilePage">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10">
+            <Label Text="{Binding Name}"
+                   Style="{StaticResource TitleLabel}"></Label>
+            <Label Text="{Binding Email}"
+                   Style="{StaticResource SecondaryLabel}"></Label>
+
+            <StackLayout Orientation="Horizontal" Margin="0,20,0,0">
+                <Label Text="{x:Static resource:AppResources.IsSinger}"
+                       Style="{StaticResource MediumLabel}"></Label>
+                <Switch IsToggled="{Binding IsSinger}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+
+            <ListView x:Name="ProfileMenuListView"
+                      SeparatorVisibility="Default"
+                      SeparatorColor="#5B6677"
+                      HasUnevenRows="True"
+                      Margin="0,-10,0,0"
+                      SelectedItem="{Binding SelectedMenu, Mode=TwoWay}"
+                      ItemsSource="{Binding MenuList, Mode=OneWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="0,10" BackgroundColor="#edeff1">
+                                <Label Text="{Binding}" Style="{StaticResource MediumLabel}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

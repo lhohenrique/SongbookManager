@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:Views="clr-namespace:SongbookManager.Views"
+       xmlns:resource="clr-namespace:SongbookManager.Resx"
+       Shell.TabBarTitleColor="#131516"
+       Shell.TabBarUnselectedColor="#5B6677"
+       Shell.TabBarDisabledColor="LightGray"
+       x:Class="SongbookManager.MainPage">
+
+    <ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate Views:LoginPage}"/>
+    </ShellItem>
+    
+    <TabBar>
+        <Tab Title="{x:Static resource:AppResources.Musics}" Route="MusicPage" Icon="musics.png">
+            <ShellContent>
+                <Views:MusicPage Title="{x:Static resource:AppResources.Musics}"/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="{x:Static resource:AppResources.Repertoires}" Route="RepertoirePage" IsEnabled="False" Icon="repertoireLite.png">
+            <ShellContent>
+                <Views:RepertoirePage Title="{x:Static resource:AppResources.Repertoires}"/>
+            </ShellContent>
+        </Tab>
+        <Tab Title="{x:Static resource:AppResources.Profile}" Route="ProfilePage" Icon="profile.png">
+            <ShellContent>
+                <Views:ProfilePage Title="{x:Static resource:AppResources.Profile}"/>
+            </ShellContent>
+        </Tab>
+    </TabBar>
+
+</Shell>

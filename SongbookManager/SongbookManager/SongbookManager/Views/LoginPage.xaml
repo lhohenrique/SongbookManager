@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:SongbookManager.Converters"
+             xmlns:resource="clr-namespace:SongbookManager.Resx"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             Style="{StaticResource BaseContentPage}"
+             x:Class="SongbookManager.Views.LoginPage">
+
+    <StackLayout Padding="10" VerticalOptions="Center">
+        <ScrollView>
+            <StackLayout>
+                <Image Source="logo.png"/>
+
+                <Label Text="{x:Static resource:AppResources.SignIn}" Style="{StaticResource TitleLabel}"
+                       HorizontalOptions="Center"
+                       Margin="0,10,0,0"/>
+
+                <Entry Placeholder="{x:Static resource:AppResources.Email}" Text="{Binding Email}" Keyboard="Email" Margin="0,10,0,0"/>
+
+                <Entry Placeholder="{x:Static resource:AppResources.Password}" Text="{Binding Password}" IsPassword="True"/>
+
+                <StackLayout Orientation="Horizontal" Spacing="3" Margin="0,-10,0,0">
+                    <Button Text="{x:Static resource:AppResources.NewUser}" Style="{StaticResource TransparentButton}"
+                            HeightRequest="40" Padding="0,0,2,0"
+                            Command="{Binding SignUpCommand}"/>
+                    <Button Text="{x:Static resource:AppResources.ForgotPassword}" Style="{StaticResource TransparentButton}"
+                            HorizontalOptions="EndAndExpand"
+                            HeightRequest="40"
+                            Command="{Binding ForgotPasswordCommand}"/>
+                </StackLayout>
+
+                <Button Text="{x:Static resource:AppResources.SignIn}"
+                        Style="{StaticResource MainButton}"
+                        HeightRequest="40" Margin="0,20,0,0"
+                        Command="{Binding LoginCommand}"/>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>
