@@ -4,7 +4,6 @@
             Shell.TabBarIsVisible="False"
             xmlns:converters="clr-namespace:SongbookManager.Converters"
             xmlns:resource="clr-namespace:SongbookManager.Resx"
-            xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
             Style="{StaticResource BaseContentPage}"
             x:Class="SongbookManager.Views.PreviewMusicPage">
 
@@ -20,27 +19,15 @@
     <ContentPage Title="{x:Static resource:AppResources.Details}" Style="{StaticResource BaseContentPage}">
         <ContentPage.Content>
             <ScrollView>
-                <StackLayout Spacing="10">
-                    <controls:MTAdView x:Name="PreviewMusicDetailAds" IsVisible="true" AdsId="ca-app-pub-4649626975914217/2317560399">
-                        <controls:MTAdView.HeightRequest>
-                            <x:OnIdiom>
-                                <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
-                                <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
-                                <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
-                            </x:OnIdiom>
-                        </controls:MTAdView.HeightRequest>
-                    </controls:MTAdView>
+                <StackLayout Spacing="10" Padding="10">
+                    <Label Text="{Binding Name}"
+                           Style="{StaticResource PrimaryLabel}"></Label>
 
-                    <StackLayout Spacing="10" Padding="10">
-                        <Label Text="{Binding Name}"
-                            Style="{StaticResource PrimaryLabel}"></Label>
+                    <Label Text="{Binding Author}"
+                           Style="{StaticResource SecondaryLabel}"></Label>
 
-                        <Label Text="{Binding Author}"
-                            Style="{StaticResource SecondaryLabel}"></Label>
-
-                        <Label Text="{Binding Lyrics}"
-                            Style="{StaticResource MediumLabel}"></Label>
-                    </StackLayout>
+                    <Label Text="{Binding Lyrics}"
+                           Style="{StaticResource MediumLabel}"></Label>
                 </StackLayout>
             </ScrollView>
         </ContentPage.Content>
@@ -49,28 +36,16 @@
     <ContentPage Title="{x:Static resource:AppResources.Chords}" Style="{StaticResource BaseContentPage}">
         <ContentPage.Content>
             <ScrollView>
-                <StackLayout Spacing="10">
-                    <controls:MTAdView x:Name="PreviewMusicChordsAds" IsVisible="true" AdsId="ca-app-pub-4649626975914217/2317560399">
-                        <controls:MTAdView.HeightRequest>
-                            <x:OnIdiom>
-                                <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
-                                <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
-                                <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
-                            </x:OnIdiom>
-                        </controls:MTAdView.HeightRequest>
-                    </controls:MTAdView>
-
-                    <StackLayout Padding="10" Spacing="20">
-                        <StackLayout Orientation="Horizontal" Spacing="5">
-                            <Label Text="{x:Static resource:AppResources.Key}"
-                                   Style="{StaticResource MediumLabel}"></Label>
-                            <Label Text="{Binding Key}"
-                                   Style="{StaticResource SecondaryLabel}"></Label>
-                        </StackLayout>
-
-                        <Label Text="{Binding Chords}"
+                <StackLayout Padding="10" Spacing="20">
+                    <StackLayout Orientation="Horizontal" Spacing="5">
+                        <Label Text="{x:Static resource:AppResources.Key}"
                                Style="{StaticResource MediumLabel}"></Label>
+                        <Label Text="{Binding Key}"
+                               Style="{StaticResource SecondaryLabel}"></Label>
                     </StackLayout>
+
+                    <Label Text="{Binding Chords}"
+                           Style="{StaticResource MediumLabel}"></Label>
                 </StackLayout>
             </ScrollView>
         </ContentPage.Content>
@@ -79,16 +54,6 @@
     <ContentPage Title="{x:Static resource:AppResources.Keys}" Style="{StaticResource BaseContentPage}">
         <ContentPage.Content>
             <StackLayout Spacing="5">
-                <controls:MTAdView x:Name="PreviewMusicKeysAds" IsVisible="true" AdsId="ca-app-pub-4649626975914217/2317560399">
-                    <controls:MTAdView.HeightRequest>
-                        <x:OnIdiom>
-                            <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
-                            <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
-                            <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
-                        </x:OnIdiom>
-                    </controls:MTAdView.HeightRequest>
-                </controls:MTAdView>
-                
                 <Label Text="{x:Static resource:AppResources.ThereAreNoSingersWithSavedKeysForThisSong}"
                        Style="{StaticResource SecondaryLabel}"
                        HorizontalTextAlignment="Center" HorizontalOptions="Center"

@@ -4,7 +4,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resource="clr-namespace:SongbookManager.Resx"
              xmlns:converters="clr-namespace:SongbookManager.Converters"
-             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              Style="{StaticResource BaseContentPage}"
              Shell.TabBarIsVisible="False"
              Title="{x:Static resource:AppResources.Share}"
@@ -15,16 +14,6 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <controls:MTAdView x:Name="SharePageAds" IsVisible="true" AdsId="ca-app-pub-4649626975914217/2317560399">
-                <controls:MTAdView.HeightRequest>
-                    <x:OnIdiom>
-                        <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
-                        <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
-                        <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
-                    </x:OnIdiom>
-                </controls:MTAdView.HeightRequest>
-            </controls:MTAdView>
-            
             <StackLayout Orientation="Vertical" IsVisible="{Binding IsSharedList}" Padding="10" Spacing="10">
                 <Label Text="{x:Static resource:AppResources.AccessingSharedList}"
                        Style="{StaticResource TitleLabel}"></Label>
