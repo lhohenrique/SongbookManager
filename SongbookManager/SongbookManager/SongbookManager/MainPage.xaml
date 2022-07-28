@@ -18,7 +18,7 @@
                 <Views:MusicPage Title="{x:Static resource:AppResources.Musics}"/>
             </ShellContent>
         </Tab>
-        <Tab Title="{x:Static resource:AppResources.Repertoires}" Route="RepertoirePage" IsEnabled="False" Icon="repertoire.png">
+        <Tab Title="{x:Static resource:AppResources.Repertoires}" Route="RepertoirePage" Icon="repertoire.png">
             <ShellContent>
                 <Views:RepertoirePage Title="{x:Static resource:AppResources.Repertoires}"/>
             </ShellContent>

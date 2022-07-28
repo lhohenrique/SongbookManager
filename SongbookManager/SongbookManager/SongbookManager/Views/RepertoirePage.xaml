@@ -1,12 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:SongbookManager.Resx"
+             Style="{StaticResource BaseContentPage}"
              x:Class="SongbookManager.Views.RepertoirePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resource:AppResources.SortByMostRecent}" Order="Secondary" Command="{Binding MostRecentOrderCommand}"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.SortByOldest}" Order="Secondary" Command="{Binding OldestOrderCommand}"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <RelativeLayout>
+            <ContentView RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"  
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+                <RefreshView IsRefreshing="{Binding IsUpdating, Mode=OneWay}" Command="{Binding UpdateRepertoireListCommand}" Padding="0,0,0,2">
+                    <ListView x:Name="RepertoireListView"
+                                SeparatorVisibility="Default"
+                                SelectedItem="{Binding SelectedRepertoire}"
+                                ItemsSource="{Binding RepertoireList, Mode=OneWay}"
+                                HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout BackgroundColor="White"
+                                                    Orientation="Vertical"
+                                                    Padding="10,5">
+                                        <Label Text="{Binding Date}"
+                                                Style="{StaticResource PrimaryLabel}"/>
+                                        <Label Text="{Binding Time}"
+                                                Style="{StaticResource SecondaryLabel}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </RefreshView>
+            </ContentView>
+
+            <Button x:Name="AddRepertoireButton"
+                    Style="{StaticResource FloatingButton}"
+                    Command="{Binding NewRepertoireCommand}"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-70}"  
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-70}"/>
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
