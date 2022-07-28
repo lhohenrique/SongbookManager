@@ -1,10 +1,12 @@
 ﻿using SongbookManager.Helpers;
 using SongbookManager.Models;
 using SongbookManager.Resx;
+using SongbookManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -15,6 +17,8 @@ namespace SongbookManager.ViewModels
     public class RepertoirePageViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private RepertoireService repertoireService;
 
         public INavigation Navigation { get; set; }
 
@@ -110,7 +114,7 @@ namespace SongbookManager.ViewModels
         {
             this.Navigation = navigation;
 
-            //repertoireService = new RepertoireService();
+            repertoireService = new RepertoireService();
         }
 
         #region [Actions]
@@ -140,12 +144,12 @@ namespace SongbookManager.ViewModels
 
                 await LoggedUserHelper.UpdateLoggedUserAsync();
 
-                var userEmail = LoggedUserHelper.GetEmail();
-                //List<Repertoire> repertoireListUpdated = await repertoireService.GetMusicsByUser(userEmail);
+                var owner = LoggedUserHelper.GetEmail();
+                List<Repertoire> repertoireListUpdated = await repertoireService.GetRepertoiresByUser(owner);
 
                 RepertoireList.Clear();
 
-                //repertoireListUpdated.ForEach(i => MusicList.Add(i));
+                repertoireListUpdated.ForEach(i => RepertoireList.Add(i));
             }
             catch (Exception)
             {
@@ -159,18 +163,18 @@ namespace SongbookManager.ViewModels
 
         private void MostRecentOrderAction()
         {
-            //var orderedList = RepertoireList.OrderByDescending(m => m.CreationDate).ToList();
+            var orderedList = RepertoireList.OrderByDescending(r => r.Date).ToList();
 
             RepertoireList.Clear();
-            //orderedList.ForEach(i => RepertoireList.Add(i));
+            orderedList.ForEach(i => RepertoireList.Add(i));
         }
 
         private void OldestOrderAction()
         {
-            //var orderedList = RepertoireList.OrderBy(m => m.CreationDate).ToList();
+            var orderedList = RepertoireList.OrderBy(r => r.Date).ToList();
 
             RepertoireList.Clear();
-            //orderedList.ForEach(i => RepertoireList.Add(i));
+            orderedList.ForEach(i => RepertoireList.Add(i));
         }
         #endregion
     }

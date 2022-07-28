@@ -6,10 +6,12 @@ namespace SongbookManager.Models
 {
     public class Repertoire
     {
-        public int Id { get; set; }
-        public int UserId { get; set; }
+        public string Owner { get; set; }
         public List<Music> Musics { get; set; }
-        public int Singer { get; set; }
+        public List<UserKey> Keys { get; set; }
+        public int SingerName { get; set; }
+        public int SingerEmail { get; set; }
         public DateTime Date { get; set; }
+        public DateTime Time { get; set; }
     }
 }
