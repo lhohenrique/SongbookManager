@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:SongbookManager.Resx"
+             Style="{StaticResource BaseContentPage}"
+             Shell.TabBarIsVisible="False"
+             x:Class="SongbookManager.Views.AddEditRepertoirePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resource:AppResources.Save}" Command="{Binding SaveRepertoireCommand}" Order="Primary" IconImageSource="save.png"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Label Text="{x:Static resource:AppResources.Date}"
+                       Style="{StaticResource SecondaryLabel}"></Label>
+                <DatePicker Date="{Binding Date}" Format="dd MMM"/>
+
+                <Label Text="{x:Static resource:AppResources.Time}" Margin="0,10,0,0"
+                       Style="{StaticResource SecondaryLabel}"></Label>
+                <TimePicker Time="{Binding Time}"/>
+
+                <Label Text="{x:Static resource:AppResources.Musics}" Margin="0,10,0,0"
+                       Style="{StaticResource SecondaryLabel}"></Label>
+                
+                <CollectionView x:Name="MusicListCollectionView"
+                                SelectionMode="Multiple"
+                                ItemsSource="{Binding MusicList, Mode=OneWay}"
+                                SelectedItems="{Binding SelectedMusics}"
+                                SelectionChanged="MusicListCollectionView_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout BackgroundColor="Transparent"
+                                         Orientation="Vertical"
+                                         Padding="10,5">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="Transparent"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState x:Name="Selected">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="LightGray"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Label Text="{Binding Name}" Style="{StaticResource PrimaryLabel}"/>
+                                <Label Text="{Binding Author}" Style="{StaticResource SecondaryLabel}"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

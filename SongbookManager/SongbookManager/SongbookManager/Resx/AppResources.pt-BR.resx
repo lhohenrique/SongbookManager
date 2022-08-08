@@ -171,6 +171,9 @@
   <data name="CouldNotUpdateSongList" xml:space="preserve">
     <value>Não foi possível atualizar a lista de músicas</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
   <data name="Delete" xml:space="preserve">
     <value>Excluir</value>
   </data>
@@ -338,6 +341,9 @@
   </data>
   <data name="ThisUserWillBeRemovedFromYourShareList" xml:space="preserve">
     <value>Esse usuário será removido da sua lista de compartilhamentos</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Horário</value>
   </data>
   <data name="UnablePerformSearch" xml:space="preserve">
     <value>Não foi possível realizar a busca</value>

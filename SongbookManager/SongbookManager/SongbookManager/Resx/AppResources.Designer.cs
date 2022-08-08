@@ -223,6 +223,15 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Date.
+        /// </summary>
+        internal static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         internal static string Delete {
@@ -723,6 +732,15 @@ namespace SongbookManager.Resx {
         internal static string ThisUserWillBeRemovedFromYourShareList {
             get {
                 return ResourceManager.GetString("ThisUserWillBeRemovedFromYourShareList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time.
+        /// </summary>
+        internal static string Time {
+            get {
+                return ResourceManager.GetString("Time", resourceCulture);
             }
         }
         

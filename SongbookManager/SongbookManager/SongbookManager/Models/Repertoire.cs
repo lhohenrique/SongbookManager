@@ -12,6 +12,6 @@ namespace SongbookManager.Models
         public int SingerName { get; set; }
         public int SingerEmail { get; set; }
         public DateTime Date { get; set; }
-        public DateTime Time { get; set; }
+        public TimeSpan Time { get; set; }
     }
 }

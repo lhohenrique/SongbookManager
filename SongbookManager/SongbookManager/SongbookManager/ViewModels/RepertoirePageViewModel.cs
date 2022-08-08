@@ -2,6 +2,7 @@
 using SongbookManager.Models;
 using SongbookManager.Resx;
 using SongbookManager.Services;
+using SongbookManager.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -128,7 +129,7 @@ namespace SongbookManager.ViewModels
 
         private void NewRepertoireAction()
         {
-            //Navigation.PushAsync(new AddEditRepertoirePage(null));
+            Navigation.PushAsync(new AddEditRepertoirePage(null));
         }
 
         private async Task UpdateRepertoireListAction()
