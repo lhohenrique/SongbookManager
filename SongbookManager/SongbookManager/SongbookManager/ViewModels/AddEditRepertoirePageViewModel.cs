@@ -82,7 +82,7 @@ namespace SongbookManager.ViewModels
             repertoireService = new RepertoireService();
             musicService = new MusicService();
 
-            SaveRepertoireCommand = new Command(() => SaveRepertoireAction());
+            SaveRepertoireCommand = new Command(async () => await SaveRepertoireActionAsync());
 
             this.repertoire = repertoire;
 
@@ -94,14 +94,25 @@ namespace SongbookManager.ViewModels
         }
 
         #region [Actions]
-        public void SaveRepertoireAction()
+        public async Task SaveRepertoireActionAsync()
         {
-            Repertoire newRepertoire = new Repertoire()
+            try
             {
-                Date = Date,
-                Time = Time,
-                Musics = SelectedMusics.ToList()
-            };
+                Repertoire newRepertoire = new Repertoire()
+                {
+                    Date = Date,
+                    Time = Time,
+                    Musics = SelectedMusics.ToList()
+                };
+
+                await repertoireService.InsertRepertoire(repertoire);
+
+                await Navigation.PopAsync();
+            }
+            catch (Exception)
+            {
+                await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.CouldNotSaveRepertoire, AppResources.Ok);
+            }
         }
 
         public void SelectionChangedAction(List<Music> musics)

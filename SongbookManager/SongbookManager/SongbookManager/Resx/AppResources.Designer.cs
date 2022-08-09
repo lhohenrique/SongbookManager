@@ -187,6 +187,15 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not save repertoire.
+        /// </summary>
+        internal static string CouldNotSaveRepertoire {
+            get {
+                return ResourceManager.GetString("CouldNotSaveRepertoire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not save song.
         /// </summary>
         internal static string CouldNotSaveSong {

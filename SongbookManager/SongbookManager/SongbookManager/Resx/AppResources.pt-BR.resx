@@ -159,6 +159,9 @@
   <data name="CouldNotRemoveSong" xml:space="preserve">
     <value>Não foi possível remover a música</value>
   </data>
+  <data name="CouldNotSaveRepertoire" xml:space="preserve">
+    <value>Não foi possível salvar o repertório</value>
+  </data>
   <data name="CouldNotSaveSong" xml:space="preserve">
     <value>Não foi possível salvar a música</value>
   </data>
