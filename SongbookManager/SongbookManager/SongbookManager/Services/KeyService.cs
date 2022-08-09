@@ -37,7 +37,8 @@ namespace SongbookManager.Services
                 Key = item.Object.Key,
                 UserEmail = item.Object.UserEmail,
                 UserName = item.Object.UserName,
-                MusicName = item.Object.MusicName
+                MusicName = item.Object.MusicName,
+                MusicOwner = item.Object.MusicOwner
             }).Where(k => k.UserEmail.Equals(userEmail) && k.MusicName.Equals(musicName)).FirstOrDefault();
 
             return key;

@@ -26,10 +26,15 @@
                                     <StackLayout BackgroundColor="White"
                                                     Orientation="Vertical"
                                                     Padding="10,5">
-                                        <Label Text="{Binding Date}"
-                                                Style="{StaticResource PrimaryLabel}"/>
-                                        <Label Text="{Binding Time}"
-                                                Style="{StaticResource SecondaryLabel}"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding DateFormated}"
+                                                   Style="{StaticResource PrimaryLabel}"/>
+                                            <Label Text="{Binding TimeFormated}"
+                                                   Style="{StaticResource SecondaryLabel}"
+                                                   HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                        <Label Text="{Binding SingerName}"
+                                               Style="{StaticResource SecondaryLabel}"/>
                                     </StackLayout>
                                 </ViewCell>
                             </DataTemplate>

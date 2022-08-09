@@ -19,5 +19,11 @@ namespace SongbookManager.Views
 
             BindingContext = new RepertoirePageViewModel(Navigation);
         }
+
+        protected async override void OnAppearing()
+        {
+            var viewModel = (RepertoirePageViewModel)BindingContext;
+            await viewModel.LoadingPage();
+        }
     }
 }

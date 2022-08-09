@@ -154,7 +154,7 @@ namespace SongbookManager.ViewModels
             }
             catch (Exception)
             {
-                //await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.CouldNotUpdateSongList, AppResources.Ok);
+                await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.CouldNotUpdateRepertoireList, AppResources.Ok);
             }
             finally
             {
@@ -176,6 +176,13 @@ namespace SongbookManager.ViewModels
 
             RepertoireList.Clear();
             orderedList.ForEach(i => RepertoireList.Add(i));
+        }
+        #endregion
+
+        #region [Public Methods]
+        public async Task LoadingPage()
+        {
+            await UpdateRepertoireListAction();
         }
         #endregion
     }

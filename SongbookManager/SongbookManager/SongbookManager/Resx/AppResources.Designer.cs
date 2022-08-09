@@ -214,6 +214,15 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not update repertoire list.
+        /// </summary>
+        internal static string CouldNotUpdateRepertoireList {
+            get {
+                return ResourceManager.GetString("CouldNotUpdateRepertoireList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not update shared user list.
         /// </summary>
         internal static string CouldNotUpdateSharedUserList {
@@ -669,6 +678,15 @@ namespace SongbookManager.Resx {
         internal static string SignUp {
             get {
                 return ResourceManager.GetString("SignUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Singer.
+        /// </summary>
+        internal static string Singer {
+            get {
+                return ResourceManager.GetString("Singer", resourceCulture);
             }
         }
         

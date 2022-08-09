@@ -23,8 +23,30 @@ namespace SongbookManager.ViewModels
         private TimeSpan oldTime;
         private RepertoireService repertoireService;
         private MusicService musicService;
+        private KeyService keyService;
+        private UserService userService;
+
+        private List<User> singerUserList = new List<User>();
 
         #region [Properties]
+        private string selectedSinger;
+        public string SelectedSinger
+        {
+            get { return selectedSinger; }
+            set
+            {
+                selectedSinger = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("SelectedSinger"));
+            }
+        }
+
+        private ObservableCollection<string> singers = new ObservableCollection<string>();
+        public ObservableCollection<string> Singers
+        {
+            get { return singers; }
+            set { Singers = value; }
+        }
+
         private DateTime date = DateTime.Now;
         public DateTime Date
         {
@@ -81,6 +103,8 @@ namespace SongbookManager.ViewModels
 
             repertoireService = new RepertoireService();
             musicService = new MusicService();
+            keyService = new KeyService();
+            userService = new UserService();
 
             SaveRepertoireCommand = new Command(async () => await SaveRepertoireActionAsync());
 
@@ -98,14 +122,33 @@ namespace SongbookManager.ViewModels
         {
             try
             {
+                string userEmail = GetSingerEmail();
+
+                List<UserKey> keys = new List<UserKey>();
+                foreach (Music music in SelectedMusics)
+                {
+                    if (!string.IsNullOrEmpty(SelectedSinger))
+                    {
+                        var key = await keyService.GetKeyByUser(userEmail, music.Name);
+                        if(key != null)
+                        {
+                            keys.Add(key);
+                        }
+                    }
+                }
+
                 Repertoire newRepertoire = new Repertoire()
                 {
                     Date = Date,
                     Time = Time,
-                    Musics = SelectedMusics.ToList()
+                    Musics = SelectedMusics.ToList(),
+                    Owner = LoggedUserHelper.GetEmail(),
+                    SingerName = SelectedSinger,
+                    SingerEmail = userEmail,
+                    Keys = keys
                 };
 
-                await repertoireService.InsertRepertoire(repertoire);
+                await repertoireService.InsertRepertoire(newRepertoire);
 
                 await Navigation.PopAsync();
             }
@@ -131,7 +174,9 @@ namespace SongbookManager.ViewModels
             }
             else
             {
+                await LoadSingersAsync();
                 await LoadMusicsAsync();
+                SetLoggedSinger();
             }
 
             //HasSingers = UserList.Any();
@@ -142,6 +187,23 @@ namespace SongbookManager.ViewModels
         private async Task HandleRepertoireFields()
         {
             await LoadMusicsAsync();
+        }
+
+        private async Task LoadSingersAsync()
+        {
+            try
+            {
+                var musicOwner = LoggedUserHelper.GetEmail();
+                singerUserList = await userService.GetSingers(musicOwner);
+
+                Singers.Clear();
+
+                singerUserList.ForEach(i => Singers.Add(i.Name));
+            }
+            catch (Exception)
+            {
+                await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.CouldNotLoadSingers, AppResources.Ok);
+            }
         }
 
         private async Task LoadMusicsAsync()
@@ -161,6 +223,37 @@ namespace SongbookManager.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.CouldNotUpdateSongList, AppResources.Ok);
             }
+        }
+
+        private void SetLoggedSinger()
+        {
+            if (LoggedUserHelper.LoggedUser.IsSinger)
+            {
+                SelectedSinger = LoggedUserHelper.LoggedUser.Name;
+            }
+        }
+
+        private string GetSingerEmail()
+        {
+            string singerEmail = string.Empty;
+
+            if (!string.IsNullOrEmpty(SelectedSinger))
+            {
+                if (SelectedSinger.Equals(LoggedUserHelper.LoggedUser.Name))
+                {
+                    singerEmail = LoggedUserHelper.LoggedUser.Email;
+                }
+                else
+                {
+                    var user = singerUserList.FirstOrDefault(s => s.Name.Equals(SelectedSinger));
+                    if(user != null)
+                    {
+                        singerEmail = user.Email;
+                    }
+                }
+            }
+            
+            return singerEmail;
         }
         #endregion
     }

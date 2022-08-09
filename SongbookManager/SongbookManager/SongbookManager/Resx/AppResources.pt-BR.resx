@@ -168,6 +168,9 @@
   <data name="CouldNotSignIn" xml:space="preserve">
     <value>Não foi possivel fazer login</value>
   </data>
+  <data name="CouldNotUpdateRepertoireList" xml:space="preserve">
+    <value>Não foi possível atualizar a lista de repertórios</value>
+  </data>
   <data name="CouldNotUpdateSharedUserList" xml:space="preserve">
     <value>Não foi possível atualizar a lista de usuário compartilhados</value>
   </data>
@@ -320,6 +323,9 @@
   </data>
   <data name="SignUp" xml:space="preserve">
     <value>Inscreva-se</value>
+  </data>
+  <data name="Singer" xml:space="preserve">
+    <value>Cantor</value>
   </data>
   <data name="SortByAlphabet" xml:space="preserve">
     <value>Ordenar por alfabeto</value>

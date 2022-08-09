@@ -9,9 +9,25 @@ namespace SongbookManager.Models
         public string Owner { get; set; }
         public List<Music> Musics { get; set; }
         public List<UserKey> Keys { get; set; }
-        public int SingerName { get; set; }
-        public int SingerEmail { get; set; }
+        public string SingerName { get; set; }
+        public string SingerEmail { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
+
+        public string DateFormated
+        {
+            get
+            {
+                return Date.ToString("dd MMM");
+            }
+        }
+
+        public string TimeFormated
+        {
+            get
+            {
+                return Time.ToString(@"hh\:mm");
+            }
+        }
     }
 }

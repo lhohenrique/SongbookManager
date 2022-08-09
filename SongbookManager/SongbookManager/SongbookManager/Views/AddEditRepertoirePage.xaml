@@ -13,6 +13,10 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10">
+                <Label Text="{x:Static resource:AppResources.Singer}"
+                       Style="{StaticResource SecondaryLabel}"></Label>
+                <Picker ItemsSource="{Binding Singers}" SelectedItem="{Binding SelectedSinger}" Title="{x:Static resource:AppResources.Singer}"/>
+                
                 <Label Text="{x:Static resource:AppResources.Date}"
                        Style="{StaticResource SecondaryLabel}"></Label>
                 <DatePicker Date="{Binding Date}" Format="dd MMM"/>
