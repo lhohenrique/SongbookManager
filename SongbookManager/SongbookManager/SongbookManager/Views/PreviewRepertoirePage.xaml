@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:resource="clr-namespace:SongbookManager.Resx"
+             Shell.TabBarIsVisible="False"
+             Style="{StaticResource BaseContentPage}"
+             x:Class="SongbookManager.Views.PreviewRepertoirePage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resource:AppResources.Edit}" Order="Primary" Command="{Binding EditRepertoireCommand}" IconImageSource="edit.png"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.Delete}" Order="Primary" Command="{Binding RemoveRepertoireCommand}" IconImageSource="delete.png"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="10" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Date}"
+                           Style="{StaticResource PrimaryLabel}"/>
+                    <Label Text="{Binding Time}"
+                           Style="{StaticResource SecondaryLabel}"
+                           HorizontalOptions="EndAndExpand"/>
+                </StackLayout>
+                <Label Text="{Binding Name}"
+                           Style="{StaticResource MediumLabel}"></Label>
+
+                <Label Text="{x:Static resource:AppResources.Musics}" Margin="0,10,0,0"
+                       Style="{StaticResource TitleLabel}"></Label>
+                
+                <ListView x:Name="RepertoireMusicsListView"
+                                SeparatorVisibility="Default"
+                                SelectionMode="None"
+                                ItemsSource="{Binding Musics, Mode=OneWay}"
+                                HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical"
+                                             Padding="0,5">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Name}"
+                                               Style="{StaticResource PrimaryLabel}"/>
+                                        <Label Text="{Binding Key}"
+                                               Style="{StaticResource SecondaryLabel}"
+                                               HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                    <Label Text="{Binding Author}"
+                                           Style="{StaticResource SecondaryLabel}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -18,7 +18,7 @@ namespace SongbookManager.Models
         {
             get
             {
-                return Date.ToString("dd MMM");
+                return Date.ToString("dd MMMM");
             }
         }
 

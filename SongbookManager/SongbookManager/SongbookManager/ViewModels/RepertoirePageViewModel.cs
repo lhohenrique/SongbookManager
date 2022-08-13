@@ -123,7 +123,7 @@ namespace SongbookManager.ViewModels
         {
             if (SelectedRepertoire != null)
             {
-                //Navigation.PushAsync(new PreviewRepertoirePage(selectedRepertoire));
+                Navigation.PushAsync(new PreviewRepertoirePage(selectedRepertoire));
             }
         }
 

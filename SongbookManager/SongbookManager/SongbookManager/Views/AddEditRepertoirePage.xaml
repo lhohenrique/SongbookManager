@@ -19,7 +19,7 @@
                 
                 <Label Text="{x:Static resource:AppResources.Date}"
                        Style="{StaticResource SecondaryLabel}"></Label>
-                <DatePicker Date="{Binding Date}" Format="dd MMM"/>
+                <DatePicker Date="{Binding Date}" Format="dd MMMM"/>
 
                 <Label Text="{x:Static resource:AppResources.Time}" Margin="0,10,0,0"
                        Style="{StaticResource SecondaryLabel}"></Label>

@@ -124,7 +124,6 @@ namespace SongbookManager.ViewModels
             {
                 string userEmail = GetSingerEmail();
 
-                List<UserKey> keys = new List<UserKey>();
                 foreach (Music music in SelectedMusics)
                 {
                     if (!string.IsNullOrEmpty(SelectedSinger))
@@ -132,7 +131,7 @@ namespace SongbookManager.ViewModels
                         var key = await keyService.GetKeyByUser(userEmail, music.Name);
                         if(key != null)
                         {
-                            keys.Add(key);
+                            music.Key = key.Key;
                         }
                     }
                 }
@@ -144,8 +143,7 @@ namespace SongbookManager.ViewModels
                     Musics = SelectedMusics.ToList(),
                     Owner = LoggedUserHelper.GetEmail(),
                     SingerName = SelectedSinger,
-                    SingerEmail = userEmail,
-                    Keys = keys
+                    SingerEmail = userEmail
                 };
 
                 await repertoireService.InsertRepertoire(newRepertoire);
