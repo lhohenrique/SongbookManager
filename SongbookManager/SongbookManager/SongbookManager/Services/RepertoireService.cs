@@ -75,7 +75,7 @@ namespace SongbookManager.Services
 
         }
 
-        public async Task UpdateRepertoire(Repertoire repertoire, DateTime oldDate, DateTime oldTime)
+        public async Task UpdateRepertoire(Repertoire repertoire, DateTime oldDate, TimeSpan oldTime)
         {
             var repertoireToUpdate = (await client.Child("Repertoires").OnceAsync<Repertoire>())
                                                 .Where(r => r.Object.Date.Equals(oldDate) && r.Object.Time.Equals(oldTime) && r.Object.Owner.Equals(repertoire.Owner)).FirstOrDefault();

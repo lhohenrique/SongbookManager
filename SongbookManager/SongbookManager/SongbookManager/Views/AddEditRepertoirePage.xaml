@@ -31,13 +31,14 @@
                 <CollectionView x:Name="MusicListCollectionView"
                                 SelectionMode="Multiple"
                                 ItemsSource="{Binding MusicList, Mode=OneWay}"
+                                SelectedItem="{Binding SelectedMusic, Mode=OneWay}"
                                 SelectedItems="{Binding SelectedMusics}"
                                 SelectionChanged="MusicListCollectionView_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <StackLayout BackgroundColor="Transparent"
                                          Orientation="Vertical"
-                                         Padding="10,5">
+                                         Padding="0,5">
                                 <VisualStateManager.VisualStateGroups>
                                     <VisualStateGroup x:Name="CommonStates">
                                         <VisualState x:Name="Normal">

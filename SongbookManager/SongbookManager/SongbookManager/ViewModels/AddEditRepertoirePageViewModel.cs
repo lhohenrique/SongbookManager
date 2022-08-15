@@ -91,6 +91,20 @@ namespace SongbookManager.ViewModels
                 }
             }
         }
+
+        private Music selectedMusic;
+        public Music SelectedMusic
+        {
+            get
+            {
+                return selectedMusic;
+            }
+            set
+            {
+                selectedMusic = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("SelectedMusic"));
+            }
+        }
         #endregion
 
         #region [Commands]
@@ -129,24 +143,37 @@ namespace SongbookManager.ViewModels
                     if (!string.IsNullOrEmpty(SelectedSinger))
                     {
                         var key = await keyService.GetKeyByUser(userEmail, music.Name);
-                        if(key != null)
+                        if (key != null)
                         {
                             music.Key = key.Key;
                         }
                     }
                 }
 
-                Repertoire newRepertoire = new Repertoire()
+                if (repertoire != null)
                 {
-                    Date = Date,
-                    Time = Time,
-                    Musics = SelectedMusics.ToList(),
-                    Owner = LoggedUserHelper.GetEmail(),
-                    SingerName = SelectedSinger,
-                    SingerEmail = userEmail
-                };
+                    repertoire.Date = Date;
+                    repertoire.Time = Time;
+                    repertoire.Musics = SelectedMusics.ToList();
+                    repertoire.SingerName = SelectedSinger;
+                    repertoire.SingerEmail = userEmail;
 
-                await repertoireService.InsertRepertoire(newRepertoire);
+                    await repertoireService.UpdateRepertoire(repertoire, oldDate, oldTime);
+                }
+                else
+                {
+                    Repertoire newRepertoire = new Repertoire()
+                    {
+                        Date = Date,
+                        Time = Time,
+                        Musics = SelectedMusics.ToList(),
+                        Owner = LoggedUserHelper.GetEmail(),
+                        SingerName = SelectedSinger,
+                        SingerEmail = userEmail
+                    };
+
+                    await repertoireService.InsertRepertoire(newRepertoire);
+                }
 
                 await Navigation.PopAsync();
             }
@@ -166,25 +193,33 @@ namespace SongbookManager.ViewModels
         #region [Public Methods]
         public async Task PopulateRepertoireFieldsAsync()
         {
+            await LoadSingersAsync();
+            await LoadMusicsAsync();
+
             if (repertoire != null)
             {
-                //LoadRepertoire();
+                LoadRepertoire();
             }
             else
-            {
-                await LoadSingersAsync();
-                await LoadMusicsAsync();
+            {    
                 SetLoggedSinger();
             }
-
-            //HasSingers = UserList.Any();
         }
         #endregion
 
         #region [Private Methods]
-        private async Task HandleRepertoireFields()
+        private void LoadRepertoire()
         {
-            await LoadMusicsAsync();
+            SelectedSinger = repertoire.SingerName;
+            Date = repertoire.Date;
+            Time = repertoire.Time;
+
+            // TODO: Fix musics selected state when seting from source
+            //if(repertoire.Musics != null)
+            //{
+                //SelectedMusic = repertoire.Musics.FirstOrDefault();
+                //repertoire.Musics.ForEach(m => SelectedMusics.Add(m));
+            //}
         }
 
         private async Task LoadSingersAsync()

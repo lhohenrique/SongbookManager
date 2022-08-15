@@ -1,4 +1,5 @@
 ﻿using SongbookManager.Models;
+using SongbookManager.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -74,7 +75,10 @@ namespace SongbookManager.ViewModels
         #region [Actions]
         public void EditRepertoireAction()
         {
-
+            if (repertoire != null)
+            {
+                Navigation.PushAsync(new AddEditRepertoirePage(repertoire));
+            }
         }
 
         public void RemoveRepertoireAction()
@@ -93,6 +97,8 @@ namespace SongbookManager.ViewModels
                     Name = repertoire.SingerName;
                     Date = repertoire.DateFormated;
                     Time = repertoire.TimeFormated;
+
+                    Musics.Clear();
 
                     if (repertoire.Musics != null)
                     {
