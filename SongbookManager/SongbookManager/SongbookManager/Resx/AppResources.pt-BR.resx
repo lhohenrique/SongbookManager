@@ -285,6 +285,9 @@
   <data name="PasswordsNotMatch" xml:space="preserve">
     <value>As senhas não correspondem</value>
   </data>
+  <data name="PlayRepertoire" xml:space="preserve">
+    <value>Tocar repertório</value>
+  </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Política de privacidade</value>
   </data>

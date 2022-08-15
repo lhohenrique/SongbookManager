@@ -565,6 +565,15 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Play repertoire.
+        /// </summary>
+        internal static string PlayRepertoire {
+            get {
+                return ResourceManager.GetString("PlayRepertoire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Privacy policy.
         /// </summary>
         internal static string PrivacyPolicy {

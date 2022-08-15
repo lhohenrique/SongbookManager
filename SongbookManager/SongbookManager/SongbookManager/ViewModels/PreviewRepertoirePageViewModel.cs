@@ -63,6 +63,7 @@ namespace SongbookManager.ViewModels
         #endregion
 
         #region [Commands]
+        public Command PlayRepertoireCommand { get; set; }
         public Command EditRepertoireCommand { get; set; }
         public Command RemoveRepertoireCommand { get; set; }
         #endregion
@@ -72,6 +73,7 @@ namespace SongbookManager.ViewModels
             Navigation = navigation;
             this.repertoire = repertoire;
 
+            PlayRepertoireCommand = new Command(() => PlayRepertoireAction());
             EditRepertoireCommand = new Command(() => EditRepertoireAction());
             RemoveRepertoireCommand = new Command(async () => await RemoveRepertoireAction());
 
@@ -79,6 +81,14 @@ namespace SongbookManager.ViewModels
         }
 
         #region [Actions]
+        public void PlayRepertoireAction()
+        {
+            if (repertoire != null)
+            {
+                Navigation.PushAsync(new PlayRepertoirePage(repertoire));
+            }
+        }
+
         public void EditRepertoireAction()
         {
             if (repertoire != null)

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:resource="clr-namespace:SongbookManager.Resx"
+            Style="{StaticResource BaseContentPage}"
+            Shell.TabBarIsVisible="False"
+            x:Class="SongbookManager.Views.PlayRepertoirePage">
+
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem Text="&lt;" Order="Primary" Command="{Binding PreviousMusicCommand}" IconImageSource="previous.png"/>
+        <ToolbarItem Text=">" Order="Primary" Command="{Binding NextMusicCommand}" IconImageSource="next.png"/>
+    </TabbedPage.ToolbarItems>
+    
+    <ContentPage Title="{x:Static resource:AppResources.Lyric}" Style="{StaticResource BaseContentPage}">
+        <ContentPage.Content>
+            <ScrollView>
+                <StackLayout Spacing="10" Padding="10">
+                    <Label Text="{Binding Name}"
+                           Style="{StaticResource PrimaryLabel}"></Label>
+
+                    <Label Text="{Binding Author}"
+                           Style="{StaticResource SecondaryLabel}"></Label>
+
+                    <Label Text="{Binding Lyrics}"
+                           Style="{StaticResource MediumLabel}"></Label>
+                </StackLayout>
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <ContentPage Title="{x:Static resource:AppResources.Chords}" Style="{StaticResource BaseContentPage}">
+        <ContentPage.Content>
+            <ScrollView>
+                <StackLayout Padding="10" Spacing="20">
+                    <StackLayout Orientation="Horizontal" Spacing="5">
+                        <Label Text="{x:Static resource:AppResources.Key}"
+                               Style="{StaticResource MediumLabel}"></Label>
+                        <!--<Label Text="{Binding Key}"
+                               Style="{StaticResource SecondaryLabel}"></Label>-->
+                        <Picker ItemsSource="{Binding KeyList}" SelectedItem="{Binding SelectedKey}" Title="{x:Static resource:AppResources.Key}" Margin="5,0,0,0" HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+
+                    <Label Text="{Binding Chords}"
+                           Style="{StaticResource MediumLabel}"></Label>
+                </StackLayout>
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>
