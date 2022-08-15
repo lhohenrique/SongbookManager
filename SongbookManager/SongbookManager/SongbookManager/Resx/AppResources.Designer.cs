@@ -88,6 +88,15 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This repertoire will be removed.
+        /// </summary>
+        internal static string AreYouShureRepertoireRemoved {
+            get {
+                return ResourceManager.GetString("AreYouShureRepertoireRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This song will be removed from your playlist.
         /// </summary>
         internal static string AreYouShureSongRemoved {
@@ -174,6 +183,15 @@ namespace SongbookManager.Resx {
         internal static string CouldNotLoadSong {
             get {
                 return ResourceManager.GetString("CouldNotLoadSong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not remove repertoire.
+        /// </summary>
+        internal static string CouldNotRemoveRepertoire {
+            get {
+                return ResourceManager.GetString("CouldNotRemoveRepertoire", resourceCulture);
             }
         }
         

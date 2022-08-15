@@ -1,10 +1,13 @@
 ﻿using SongbookManager.Models;
+using SongbookManager.Resx;
+using SongbookManager.Services;
 using SongbookManager.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace SongbookManager.ViewModels
@@ -13,6 +16,7 @@ namespace SongbookManager.ViewModels
     {
         public INavigation Navigation { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
+        private RepertoireService repertoireService;
 
         private Repertoire repertoire;
 
@@ -69,7 +73,9 @@ namespace SongbookManager.ViewModels
             this.repertoire = repertoire;
 
             EditRepertoireCommand = new Command(() => EditRepertoireAction());
-            RemoveRepertoireCommand = new Command(() => RemoveRepertoireAction());
+            RemoveRepertoireCommand = new Command(async () => await RemoveRepertoireAction());
+
+            repertoireService = new RepertoireService();
         }
 
         #region [Actions]
@@ -81,9 +87,26 @@ namespace SongbookManager.ViewModels
             }
         }
 
-        public void RemoveRepertoireAction()
+        public async Task RemoveRepertoireAction()
         {
+            if (repertoire != null)
+            {
+                try
+                {
+                    var result = await Application.Current.MainPage.DisplayAlert(AppResources.AreYouShure, AppResources.AreYouShureRepertoireRemoved, AppResources.Yes, AppResources.No);
 
+                    if (result)
+                    {
+                        await repertoireService.DeleteRepertoire(repertoire);
+                    }
+                }
+                catch (Exception)
+                {
+                    await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.CouldNotRemoveRepertoire, AppResources.Ok);
+                }
+            }
+
+            await Navigation.PopAsync();
         }
         #endregion
 

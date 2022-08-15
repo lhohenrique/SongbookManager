@@ -126,6 +126,9 @@
   <data name="AreYouShure" xml:space="preserve">
     <value>Are you sure?</value>
   </data>
+  <data name="AreYouShureRepertoireRemoved" xml:space="preserve">
+    <value>This repertoire will be removed</value>
+  </data>
   <data name="AreYouShureSongRemoved" xml:space="preserve">
     <value>This song will be removed from your playlist</value>
   </data>
@@ -155,6 +158,9 @@
   </data>
   <data name="CouldNotLoadSong" xml:space="preserve">
     <value>Could not load song</value>
+  </data>
+  <data name="CouldNotRemoveRepertoire" xml:space="preserve">
+    <value>Could not remove repertoire</value>
   </data>
   <data name="CouldNotRemoveSong" xml:space="preserve">
     <value>Could not remove song</value>
