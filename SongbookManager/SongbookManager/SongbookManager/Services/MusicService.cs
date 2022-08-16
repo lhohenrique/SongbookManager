@@ -29,6 +29,7 @@ namespace SongbookManager.Services
                     Lyrics = item.Object.Lyrics,
                     Chords = item.Object.Chords,
                     Owner = item.Object.Owner,
+                    Version = item.Object.Version,
                     CreationDate = item.Object.CreationDate
                 }).ToList();
 
@@ -45,6 +46,7 @@ namespace SongbookManager.Services
                 Lyrics = item.Object.Lyrics,
                 Chords = item.Object.Chords,
                 Owner = item.Object.Owner,
+                Version = item.Object.Version,
                 CreationDate = item.Object.CreationDate
             }).Where(m => m.Owner.Equals(userEmail)).ToList();
 
@@ -84,7 +86,9 @@ namespace SongbookManager.Services
                 Key = item.Object.Key,
                 Lyrics = item.Object.Lyrics,
                 Chords = item.Object.Chords,
-                Owner = item.Object.Owner
+                Owner = item.Object.Owner,
+                Version = item.Object.Version,
+                CreationDate = item.Object.CreationDate
             }).Where(m => m.Owner.Equals(userEmail) && m.Name.ToUpper().Contains(searchText.ToUpper())).ToList();
 
             return musics;

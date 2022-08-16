@@ -93,6 +93,17 @@ namespace SongbookManager.ViewModels
             }
         }
 
+        private string version;
+        public string Version
+        {
+            get { return version; }
+            set
+            {
+                version = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Version"));
+            }
+        }
+
         private ObservableCollection<string> keyList = new ObservableCollection<string>(){"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
         public ObservableCollection<string> KeyList
         {
@@ -157,6 +168,7 @@ namespace SongbookManager.ViewModels
                     {
                         music.Name = Name;
                         music.Author = Author;
+                        music.Version = Version;
                         music.Key = SelectedKey;
                         music.Lyrics = Lyrics;
                         music.Chords = Chords;
@@ -187,6 +199,7 @@ namespace SongbookManager.ViewModels
                             Name = Name,
                             Owner = LoggedUserHelper.GetEmail(),
                             Author = Author,
+                            Version = Version,
                             Key = SelectedKey,
                             Lyrics = Lyrics,
                             Chords = Chords,
@@ -241,6 +254,7 @@ namespace SongbookManager.ViewModels
                 Id = music.Id;
                 Name = music.Name;
                 Author = music.Author;
+                Version = music.Version;
                 SelectedKey = music.Key;
                 Lyrics = music.Lyrics;
                 Chords = music.Chords;
@@ -278,6 +292,7 @@ namespace SongbookManager.ViewModels
                 Id = 0;
                 Name = string.Empty;
                 Author = string.Empty;
+                Version = string.Empty;
                 SelectedKey = string.Empty;
                 Lyrics = string.Empty;
                 Chords = string.Empty;

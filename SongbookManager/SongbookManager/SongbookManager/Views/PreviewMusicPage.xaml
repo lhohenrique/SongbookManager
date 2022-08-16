@@ -19,14 +19,19 @@
     <ContentPage Title="{x:Static resource:AppResources.Details}" Style="{StaticResource BaseContentPage}">
         <ContentPage.Content>
             <ScrollView>
-                <StackLayout Spacing="10" Padding="10">
-                    <Label Text="{Binding Name}"
-                           Style="{StaticResource PrimaryLabel}"></Label>
-
+                <StackLayout Spacing="0" Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Name}"
+                               Style="{StaticResource PrimaryLabel}"></Label>
+                        <Button Text="{x:Static resource:AppResources.Play}" HeightRequest="40"
+                                Command="{Binding PlayMusicCommand}"
+                                IsVisible="{Binding IsPlayMusicVisible}"
+                                Style="{StaticResource MainButton}" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
                     <Label Text="{Binding Author}"
                            Style="{StaticResource SecondaryLabel}"></Label>
 
-                    <Label Text="{Binding Lyrics}"
+                    <Label Text="{Binding Lyrics}" Margin="0,10,0,0"
                            Style="{StaticResource MediumLabel}"></Label>
                 </StackLayout>
             </ScrollView>

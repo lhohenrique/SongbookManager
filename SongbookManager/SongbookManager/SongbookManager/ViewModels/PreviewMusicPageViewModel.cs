@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace SongbookManager.ViewModels
@@ -97,6 +98,17 @@ namespace SongbookManager.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs("HasSingers"));
             }
         }
+
+        private bool isPlayMusicVisible = false;
+        public bool IsPlayMusicVisible
+        {
+            get { return isPlayMusicVisible; }
+            set
+            {
+                isPlayMusicVisible = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("IsPlayMusicVisible"));
+            }
+        }
         #endregion
 
         #region [Commands]
@@ -123,6 +135,14 @@ namespace SongbookManager.ViewModels
                 await RemoveMusicAction();
             });
         }
+
+        public ICommand PlayMusicCommand
+        {
+            get => new Command(() =>
+            {
+                PlayMusicAction();
+            });
+        }
         #endregion
 
         public PreviewMusicPageViewModel(INavigation navigation, Music music)
@@ -144,6 +164,8 @@ namespace SongbookManager.ViewModels
                 Key = music.Key;
                 Lyrics = music.Lyrics;
                 Chords = music.Chords;
+
+                IsPlayMusicVisible = !string.IsNullOrEmpty(music.Version);
 
                 await GetMusicKeys();
             }
@@ -180,6 +202,13 @@ namespace SongbookManager.ViewModels
             }
 
             await Navigation.PopAsync();
+        }
+
+        private void PlayMusicAction()
+        {
+            string url = music.Version;
+
+            Launcher.OpenAsync(new Uri(url));
         }
         #endregion
 

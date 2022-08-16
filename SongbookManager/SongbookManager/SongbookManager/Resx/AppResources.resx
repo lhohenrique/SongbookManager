@@ -285,6 +285,9 @@
   <data name="PasswordsNotMatch" xml:space="preserve">
     <value>Passwords do not match</value>
   </data>
+  <data name="Play" xml:space="preserve">
+    <value>Play</value>
+  </data>
   <data name="PlayRepertoire" xml:space="preserve">
     <value>Play repertoire</value>
   </data>
@@ -392,6 +395,9 @@
   </data>
   <data name="UserNotFound" xml:space="preserve">
     <value>User not found</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>Version</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
