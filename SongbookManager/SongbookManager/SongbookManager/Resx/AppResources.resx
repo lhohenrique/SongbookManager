@@ -123,6 +123,9 @@
   <data name="AddPeople" xml:space="preserve">
     <value>Add people</value>
   </data>
+  <data name="Afternoon" xml:space="preserve">
+    <value>tarde</value>
+  </data>
   <data name="AreYouShure" xml:space="preserve">
     <value>Are you sure?</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="CouldNotSaveSong" xml:space="preserve">
     <value>Could not save song</value>
+  </data>
+  <data name="CouldNotSendRepertoire" xml:space="preserve">
+    <value>Could not send repertoire</value>
   </data>
   <data name="CouldNotSignIn" xml:space="preserve">
     <value>Could not sign in</value>
@@ -249,6 +255,9 @@
   <data name="MinimumCharacterMessage" xml:space="preserve">
     <value>Password must be at least 6 characters long</value>
   </data>
+  <data name="Morning" xml:space="preserve">
+    <value>morning</value>
+  </data>
   <data name="MusicList" xml:space="preserve">
     <value>Song list</value>
   </data>
@@ -269,6 +278,9 @@
   </data>
   <data name="NewUser" xml:space="preserve">
     <value>Need an account?</value>
+  </data>
+  <data name="Night" xml:space="preserve">
+    <value>night</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
@@ -321,6 +333,12 @@
   <data name="Search" xml:space="preserve">
     <value>Search...</value>
   </data>
+  <data name="Send" xml:space="preserve">
+    <value>Send</value>
+  </data>
+  <data name="SendRepertoire" xml:space="preserve">
+    <value>Send repertoire</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
@@ -338,6 +356,9 @@
   </data>
   <data name="Singer" xml:space="preserve">
     <value>Singer</value>
+  </data>
+  <data name="SongsFor" xml:space="preserve">
+    <value>Songs for</value>
   </data>
   <data name="SortByAlphabet" xml:space="preserve">
     <value>Sort by alphabet</value>
@@ -398,6 +419,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Version</value>
+  </data>
+  <data name="WantToSendRepertoire" xml:space="preserve">
+    <value>Do you want to send the repertoire?</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>

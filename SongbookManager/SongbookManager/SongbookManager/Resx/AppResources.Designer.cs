@@ -79,6 +79,15 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to tarde.
+        /// </summary>
+        internal static string Afternoon {
+            get {
+                return ResourceManager.GetString("Afternoon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure?.
         /// </summary>
         internal static string AreYouShure {
@@ -219,6 +228,15 @@ namespace SongbookManager.Resx {
         internal static string CouldNotSaveSong {
             get {
                 return ResourceManager.GetString("CouldNotSaveSong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not send repertoire.
+        /// </summary>
+        internal static string CouldNotSendRepertoire {
+            get {
+                return ResourceManager.GetString("CouldNotSendRepertoire", resourceCulture);
             }
         }
         
@@ -457,6 +475,15 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to morning.
+        /// </summary>
+        internal static string Morning {
+            get {
+                return ResourceManager.GetString("Morning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Song list.
         /// </summary>
         internal static string MusicList {
@@ -516,6 +543,15 @@ namespace SongbookManager.Resx {
         internal static string NewUser {
             get {
                 return ResourceManager.GetString("NewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to night.
+        /// </summary>
+        internal static string Night {
+            get {
+                return ResourceManager.GetString("Night", resourceCulture);
             }
         }
         
@@ -673,6 +709,24 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send.
+        /// </summary>
+        internal static string Send {
+            get {
+                return ResourceManager.GetString("Send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send repertoire.
+        /// </summary>
+        internal static string SendRepertoire {
+            get {
+                return ResourceManager.GetString("SendRepertoire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         internal static string Settings {
@@ -723,6 +777,15 @@ namespace SongbookManager.Resx {
         internal static string Singer {
             get {
                 return ResourceManager.GetString("Singer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Songs for.
+        /// </summary>
+        internal static string SongsFor {
+            get {
+                return ResourceManager.GetString("SongsFor", resourceCulture);
             }
         }
         
@@ -903,6 +966,15 @@ namespace SongbookManager.Resx {
         internal static string Version {
             get {
                 return ResourceManager.GetString("Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to send the repertoire?.
+        /// </summary>
+        internal static string WantToSendRepertoire {
+            get {
+                return ResourceManager.GetString("WantToSendRepertoire", resourceCulture);
             }
         }
         

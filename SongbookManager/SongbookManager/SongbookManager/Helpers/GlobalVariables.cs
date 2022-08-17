@@ -14,6 +14,13 @@ namespace SongbookManager.Helpers
         public static string Body = AppResources.NewPasswordEmailBody;
         #endregion
 
+        #region [Repertoire]
+        public static string SendRepMessageIntro = AppResources.SongsFor;
+        public static string MorningPeriod = AppResources.Morning;
+        public static string AfternoonPeriod = AppResources.Afternoon;
+        public static string NightPeriod = AppResources.Night;
+        #endregion
+
         #region [Privacy Policy]
         public static string PrivacyPolicy = @"<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width'>"+
         "<title>Privacy Policy</title>"+

@@ -1,4 +1,5 @@
-﻿using SongbookManager.Models;
+﻿using SongbookManager.Helpers;
+using SongbookManager.Models;
 using SongbookManager.Resx;
 using SongbookManager.Services;
 using SongbookManager.Views;
@@ -8,6 +9,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace SongbookManager.ViewModels
@@ -64,6 +66,7 @@ namespace SongbookManager.ViewModels
 
         #region [Commands]
         public Command PlayRepertoireCommand { get; set; }
+        public Command SendRepertoireCommand { get; set; }
         public Command EditRepertoireCommand { get; set; }
         public Command RemoveRepertoireCommand { get; set; }
         #endregion
@@ -74,6 +77,7 @@ namespace SongbookManager.ViewModels
             this.repertoire = repertoire;
 
             PlayRepertoireCommand = new Command(() => PlayRepertoireAction());
+            SendRepertoireCommand = new Command(async () => await SendRepertoireAction());
             EditRepertoireCommand = new Command(() => EditRepertoireAction());
             RemoveRepertoireCommand = new Command(async () => await RemoveRepertoireAction());
 
@@ -87,6 +91,11 @@ namespace SongbookManager.ViewModels
             {
                 Navigation.PushAsync(new PlayRepertoirePage(repertoire));
             }
+        }
+
+        public async Task SendRepertoireAction()
+        {
+            await Utils.SendRepertoire(repertoire);
         }
 
         public void EditRepertoireAction()

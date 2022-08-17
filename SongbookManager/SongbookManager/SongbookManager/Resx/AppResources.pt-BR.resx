@@ -123,6 +123,9 @@
   <data name="AddPeople" xml:space="preserve">
     <value>Adicione pessoas</value>
   </data>
+  <data name="Afternoon" xml:space="preserve">
+    <value>tarde</value>
+  </data>
   <data name="AreYouShure" xml:space="preserve">
     <value>Tem certeza?</value>
   </data>
@@ -170,6 +173,9 @@
   </data>
   <data name="CouldNotSaveSong" xml:space="preserve">
     <value>Não foi possível salvar a música</value>
+  </data>
+  <data name="CouldNotSendRepertoire" xml:space="preserve">
+    <value>Não foi possível enviar o repertório</value>
   </data>
   <data name="CouldNotSignIn" xml:space="preserve">
     <value>Não foi possivel fazer login</value>
@@ -249,6 +255,9 @@
   <data name="MinimumCharacterMessage" xml:space="preserve">
     <value>A senha precisa ter no mínimo 6 caracteres</value>
   </data>
+  <data name="Morning" xml:space="preserve">
+    <value>manhã</value>
+  </data>
   <data name="MusicList" xml:space="preserve">
     <value>Lista de músicas</value>
   </data>
@@ -269,6 +278,9 @@
   </data>
   <data name="NewUser" xml:space="preserve">
     <value>Novo usuário?</value>
+  </data>
+  <data name="Night" xml:space="preserve">
+    <value>noite</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Não</value>
@@ -321,6 +333,12 @@
   <data name="Search" xml:space="preserve">
     <value>Pesquisar...</value>
   </data>
+  <data name="Send" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="SendRepertoire" xml:space="preserve">
+    <value>Enviar repertório</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Configurações</value>
   </data>
@@ -338,6 +356,9 @@
   </data>
   <data name="Singer" xml:space="preserve">
     <value>Cantor</value>
+  </data>
+  <data name="SongsFor" xml:space="preserve">
+    <value>Músicas para</value>
   </data>
   <data name="SortByAlphabet" xml:space="preserve">
     <value>Ordenar por alfabeto</value>
@@ -398,6 +419,9 @@
   </data>
   <data name="Version" xml:space="preserve">
     <value>Versão</value>
+  </data>
+  <data name="WantToSendRepertoire" xml:space="preserve">
+    <value>Deseja enviar o repertório?</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Sim</value>
