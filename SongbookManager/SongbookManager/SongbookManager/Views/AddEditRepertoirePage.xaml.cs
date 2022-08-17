@@ -44,5 +44,11 @@ namespace SongbookManager.Views
 				viewModel.SelectionChangedAction(musicsSelected);
 			}
 		}
+
+        private void MusicSearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+			var viewModel = (AddEditRepertoirePageViewModel)BindingContext;
+			viewModel.SearchCommand.Execute(null);
+		}
     }
 }

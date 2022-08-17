@@ -25,6 +25,7 @@ namespace SongbookManager.ViewModels
         private MusicService musicService;
         private KeyService keyService;
         private UserService userService;
+        private bool pageLoaded = false;
 
         private List<User> singerUserList = new List<User>();
 
@@ -105,10 +106,21 @@ namespace SongbookManager.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs("SelectedMusic"));
             }
         }
+
+        private string searchText = string.Empty;
+        public string SearchText
+        {
+            get { return searchText; }
+            set
+            {
+                searchText = value;
+            }
+        }
         #endregion
 
         #region [Commands]
         public Command SaveRepertoireCommand { get; set; }
+        public Command SearchCommand { get; set; }
         #endregion
 
         public AddEditRepertoirePageViewModel(INavigation navigation, Repertoire repertoire)
@@ -121,6 +133,7 @@ namespace SongbookManager.ViewModels
             userService = new UserService();
 
             SaveRepertoireCommand = new Command(async () => await SaveRepertoireActionAsync());
+            SearchCommand = new Command(async () => await SearchActionAsync());
 
             this.repertoire = repertoire;
 
@@ -188,6 +201,28 @@ namespace SongbookManager.ViewModels
             SelectedMusics.Clear();
             musics.ForEach(m => SelectedMusics.Add(m));
         }
+
+        private async Task SearchActionAsync()
+        {
+            try
+            {
+                if (!pageLoaded)
+                {
+                    return;
+                }
+
+                var userEmail = LoggedUserHelper.GetEmail();
+                List<Music> musicListUpdated = await musicService.SearchMusic(SearchText, userEmail);
+
+                MusicList.Clear();
+
+                musicListUpdated.ForEach(i => MusicList.Add(i));
+            }
+            catch (Exception)
+            {
+                await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.UnablePerformSearch, AppResources.Ok);
+            }
+        }
         #endregion
 
         #region [Public Methods]
@@ -204,6 +239,8 @@ namespace SongbookManager.ViewModels
             {    
                 SetLoggedSinger();
             }
+
+            pageLoaded = true;
         }
         #endregion
 
