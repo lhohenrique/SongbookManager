@@ -28,7 +28,7 @@
                 <Label Text="{x:Static resource:AppResources.Musics}" Margin="0,10,0,0"
                        Style="{StaticResource SecondaryLabel}"></Label>
 
-                <SearchBar x:Name="MusicSearchBar" Placeholder="{x:Static resource:AppResources.Search}" Text="{Binding SearchText}"  TextChanged="MusicSearchBar_TextChanged"  HorizontalOptions="FillAndExpand" />
+                <SearchBar x:Name="MusicSearchBar" Placeholder="{x:Static resource:AppResources.Search}" PlaceholderColor="LightGray" Text="{Binding SearchText}" TextChanged="MusicSearchBar_TextChanged"  HorizontalOptions="FillAndExpand" />
 
                 <CollectionView x:Name="MusicListCollectionView"
                                 SelectionMode="Multiple"

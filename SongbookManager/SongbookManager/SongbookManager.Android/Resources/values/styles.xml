@@ -27,8 +27,24 @@
 		<item name="android:itemTextAppearance">@style/myCustomMenuTextAppearance</item>
 		<!--background color-->
 		<item name="android:itemBackground">#5B6677</item>
+
+		<item name="android:datePickerDialogTheme">@style/CustomDatePickerDialog</item>
   </style>
 	<style name="myCustomMenuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
 		<item name="android:textColor">#FFFFFF</item>
+	</style>
+	<style name="CustomDatePickerDialog" parent="ThemeOverlay.AppCompat.Dialog">
+		<!--header textcolor-->
+		<item name="android:textColorPrimaryInverse">#ffffff</item>
+		<!--body background-->
+		<item name="android:windowBackground">#ffffff</item>
+		<!--selected day-->
+		<item name="android:colorControlActivated">#5B6677</item>
+		<!--days of the month-->
+		<item name="android:textColorPrimary">#131516</item>
+		<!--days of the week-->
+		<item name="android:textColorSecondary">#131516</item>
+		<!--cancel&ok-->
+		<item name="android:textColor">#5B6677</item>
 	</style>
 </resources>
