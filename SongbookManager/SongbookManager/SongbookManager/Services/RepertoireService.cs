@@ -83,6 +83,24 @@ namespace SongbookManager.Services
             await client.Child("Repertoires").Child(repertoireToUpdate.Key).PutAsync(repertoire);
         }
 
+        public async Task<List<Repertoire>> SearchRepertoire(string searchText, string owner)
+        {
+            var repertoires = (await client.Child("Repertoires").OnceAsync<Repertoire>()).Select(item => new Repertoire
+            {
+                Date = item.Object.Date,
+                Keys = item.Object.Keys,
+                Musics = item.Object.Musics,
+                Owner = item.Object.Owner,
+                SingerName = item.Object.SingerName,
+                SingerEmail = item.Object.SingerEmail,
+                Time = item.Object.Time
+            }).Where(r => r.Owner.Equals(owner) &&
+                          (r.Date.ToString("dd MMMM").ToUpper().Contains(searchText.ToUpper()) ||
+                          r.SingerName.ToString().ToUpper().Contains(searchText.ToUpper()))).ToList();
+
+            return repertoires;
+        }
+
         public async Task DeleteRepertoire(Repertoire repertoire)
         {
             var repertoireToDelete = (await client.Child("Repertoires").OnceAsync<Repertoire>())

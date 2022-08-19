@@ -25,5 +25,11 @@ namespace SongbookManager.Views
             var viewModel = (RepertoirePageViewModel)BindingContext;
             await viewModel.LoadingPage();
         }
+
+        private void RepertoireSearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var viewModel = (RepertoirePageViewModel)BindingContext;
+            viewModel.SearchCommand.Execute(null);
+        }
     }
 }

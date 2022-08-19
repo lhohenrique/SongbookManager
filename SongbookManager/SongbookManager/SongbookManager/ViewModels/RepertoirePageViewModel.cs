@@ -20,6 +20,7 @@ namespace SongbookManager.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         private RepertoireService repertoireService;
+        private bool pageLoaded = false;
 
         public INavigation Navigation { get; set; }
 
@@ -75,6 +76,16 @@ namespace SongbookManager.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs("IsUpdating"));
             }
         }
+
+        private string searchText = string.Empty;
+        public string SearchText
+        {
+            get { return searchText; }
+            set
+            {
+                searchText = value;
+            }
+        }
         #endregion
 
         #region [Commands]
@@ -107,6 +118,14 @@ namespace SongbookManager.ViewModels
             get => new Command(() =>
             {
                 OldestOrderAction();
+            });
+        }
+
+        public ICommand SearchCommand
+        {
+            get => new Command(async () =>
+            {
+                await SearchAction();
             });
         }
         #endregion
@@ -162,6 +181,29 @@ namespace SongbookManager.ViewModels
             }
         }
 
+        private async Task SearchAction()
+        {
+            try
+            {
+                if (!pageLoaded)
+                {
+                    return;
+                }
+
+                //List<Music> musicListUpdated = await App.Database.SearchMusic(SearchText);
+                var userEmail = LoggedUserHelper.GetEmail();
+                List<Repertoire> repertoireListUpdated = await repertoireService.SearchRepertoire(SearchText, userEmail);
+
+                RepertoireList.Clear();
+
+                repertoireListUpdated.ForEach(i => RepertoireList.Add(i));
+            }
+            catch (Exception)
+            {
+                await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.UnablePerformSearch, AppResources.Ok);
+            }
+        }
+
         private void MostRecentOrderAction()
         {
             var orderedList = RepertoireList.OrderByDescending(r => r.Date).ToList();
@@ -183,6 +225,7 @@ namespace SongbookManager.ViewModels
         public async Task LoadingPage()
         {
             await UpdateRepertoireListAction();
+            pageLoaded = true;
         }
         #endregion
     }
