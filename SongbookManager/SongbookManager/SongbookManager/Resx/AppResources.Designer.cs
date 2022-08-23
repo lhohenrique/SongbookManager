@@ -88,6 +88,15 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to All.
+        /// </summary>
+        internal static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure?.
         /// </summary>
         internal static string AreYouShure {
@@ -196,6 +205,15 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not load song data.
+        /// </summary>
+        internal static string CouldNotLoadSongData {
+            get {
+                return ResourceManager.GetString("CouldNotLoadSongData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not remove repertoire.
         /// </summary>
         internal static string CouldNotRemoveRepertoire {
@@ -277,6 +295,24 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom.
+        /// </summary>
+        internal static string Custom {
+            get {
+                return ResourceManager.GetString("Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        internal static string Data {
+            get {
+                return ResourceManager.GetString("Data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date.
         /// </summary>
         internal static string Date {
@@ -327,6 +363,15 @@ namespace SongbookManager.Resx {
         internal static string EmailWithNewPasswordSent {
             get {
                 return ResourceManager.GetString("EmailWithNewPasswordSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End date.
+        /// </summary>
+        internal static string EndDate {
+            get {
+                return ResourceManager.GetString("EndDate", resourceCulture);
             }
         }
         
@@ -448,6 +493,33 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Last 6 months.
+        /// </summary>
+        internal static string Last6Months {
+            get {
+                return ResourceManager.GetString("Last6Months", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last month.
+        /// </summary>
+        internal static string LastMonth {
+            get {
+                return ResourceManager.GetString("LastMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last year.
+        /// </summary>
+        internal static string LastYear {
+            get {
+                return ResourceManager.GetString("LastYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logout.
         /// </summary>
         internal static string Logout {
@@ -480,6 +552,15 @@ namespace SongbookManager.Resx {
         internal static string Morning {
             get {
                 return ResourceManager.GetString("Morning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Most played songs.
+        /// </summary>
+        internal static string MostPlayedSongs {
+            get {
+                return ResourceManager.GetString("MostPlayedSongs", resourceCulture);
             }
         }
         
@@ -597,6 +678,15 @@ namespace SongbookManager.Resx {
         internal static string PasswordsNotMatch {
             get {
                 return ResourceManager.GetString("PasswordsNotMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Period.
+        /// </summary>
+        internal static string Period {
+            get {
+                return ResourceManager.GetString("Period", resourceCulture);
             }
         }
         
@@ -813,6 +903,15 @@ namespace SongbookManager.Resx {
         internal static string SortByOldest {
             get {
                 return ResourceManager.GetString("SortByOldest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start date.
+        /// </summary>
+        internal static string StartDate {
+            get {
+                return ResourceManager.GetString("StartDate", resourceCulture);
             }
         }
         

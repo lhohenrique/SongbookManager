@@ -128,6 +128,14 @@ namespace SongbookManager.ViewModels
                 await SearchAction();
             });
         }
+
+        public ICommand DataCommand
+        {
+            get => new Command(() =>
+            {
+                DataAction();
+            });
+        }
         #endregion
 
         public RepertoirePageViewModel(INavigation navigation)
@@ -218,6 +226,11 @@ namespace SongbookManager.ViewModels
 
             RepertoireList.Clear();
             orderedList.ForEach(i => RepertoireList.Add(i));
+        }
+
+        private void DataAction()
+        {
+            Navigation.PushAsync(new DataPage());
         }
         #endregion
 

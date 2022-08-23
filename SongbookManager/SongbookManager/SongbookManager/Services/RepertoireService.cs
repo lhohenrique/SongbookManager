@@ -67,6 +67,40 @@ namespace SongbookManager.Services
             return repertoires;
         }
 
+        public async Task<List<Repertoire>> GetRepertoiresByPeriod(string owner, DateTime startDate, DateTime endDate)
+        {
+            var repertoires = (await client.Child("Repertoires").OnceAsync<Repertoire>()).Select(item => new Repertoire
+            {
+                Date = item.Object.Date,
+                Keys = item.Object.Keys,
+                Musics = item.Object.Musics,
+                Owner = item.Object.Owner,
+                SingerName = item.Object.SingerName,
+                SingerEmail = item.Object.SingerEmail,
+                Time = item.Object.Time
+            }).Where(r => r.Owner.Equals(owner) &&
+                    r.Date >= startDate && r.Date <= endDate).ToList();
+
+            return repertoires;
+        }
+
+        public async Task<List<Repertoire>> GetRepertoiresBySingerAndPeriod(string singer, DateTime startDate, DateTime endDate)
+        {
+            var repertoires = (await client.Child("Repertoires").OnceAsync<Repertoire>()).Select(item => new Repertoire
+            {
+                Date = item.Object.Date,
+                Keys = item.Object.Keys,
+                Musics = item.Object.Musics,
+                Owner = item.Object.Owner,
+                SingerName = item.Object.SingerName,
+                SingerEmail = item.Object.SingerEmail,
+                Time = item.Object.Time
+            }).Where(r => r.SingerEmail.Equals(singer) &&
+                    r.Date >= startDate && r.Date <= endDate).ToList();
+
+            return repertoires;
+        }
+
         public async Task<bool> InsertRepertoire(Repertoire repertoire)
         {
             await client.Child("Repertoires").PostAsync(repertoire);

@@ -126,6 +126,9 @@
   <data name="Afternoon" xml:space="preserve">
     <value>tarde</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>Todos</value>
+  </data>
   <data name="AreYouShure" xml:space="preserve">
     <value>Tem certeza?</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="CouldNotLoadSong" xml:space="preserve">
     <value>Não foi possível carregar a música</value>
   </data>
+  <data name="CouldNotLoadSongData" xml:space="preserve">
+    <value>Não foi possível carregar os dados de músicas</value>
+  </data>
   <data name="CouldNotRemoveRepertoire" xml:space="preserve">
     <value>Não foi possível remover o repertório</value>
   </data>
@@ -189,6 +195,12 @@
   <data name="CouldNotUpdateSongList" xml:space="preserve">
     <value>Não foi possível atualizar a lista de músicas</value>
   </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Personalisado</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Dados</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Data</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="EmailWithNewPasswordSent" xml:space="preserve">
     <value>Email enviado com sua nova senha</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>Data final</value>
   </data>
   <data name="EnterNameForTheSong" xml:space="preserve">
     <value>Informe um nome para a música</value>
@@ -246,6 +261,15 @@
   <data name="Keys" xml:space="preserve">
     <value>Tons</value>
   </data>
+  <data name="Last Month" xml:space="preserve">
+    <value>Último mês</value>
+  </data>
+  <data name="Last6Months" xml:space="preserve">
+    <value>Últimos 6 meses</value>
+  </data>
+  <data name="LastYear" xml:space="preserve">
+    <value>Último ano</value>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>Sair</value>
   </data>
@@ -257,6 +281,9 @@
   </data>
   <data name="Morning" xml:space="preserve">
     <value>manhã</value>
+  </data>
+  <data name="MostPlayedSongs" xml:space="preserve">
+    <value>Músicas mais tocadas</value>
   </data>
   <data name="MusicList" xml:space="preserve">
     <value>Lista de músicas</value>
@@ -296,6 +323,9 @@
   </data>
   <data name="PasswordsNotMatch" xml:space="preserve">
     <value>As senhas não correspondem</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Período</value>
   </data>
   <data name="Play" xml:space="preserve">
     <value>Tocar</value>
@@ -368,6 +398,9 @@
   </data>
   <data name="SortByOldest" xml:space="preserve">
     <value>Ordenar por mais antigo</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Data de início</value>
   </data>
   <data name="StopSharing" xml:space="preserve">
     <value>Parar Compartilhamento</value>

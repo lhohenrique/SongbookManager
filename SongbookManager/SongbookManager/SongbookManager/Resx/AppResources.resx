@@ -126,6 +126,9 @@
   <data name="Afternoon" xml:space="preserve">
     <value>tarde</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
   <data name="AreYouShure" xml:space="preserve">
     <value>Are you sure?</value>
   </data>
@@ -162,6 +165,9 @@
   <data name="CouldNotLoadSong" xml:space="preserve">
     <value>Could not load song</value>
   </data>
+  <data name="CouldNotLoadSongData" xml:space="preserve">
+    <value>Could not load song data</value>
+  </data>
   <data name="CouldNotRemoveRepertoire" xml:space="preserve">
     <value>Could not remove repertoire</value>
   </data>
@@ -189,6 +195,12 @@
   <data name="CouldNotUpdateSongList" xml:space="preserve">
     <value>Could not update song list</value>
   </data>
+  <data name="Custom" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
   <data name="Date" xml:space="preserve">
     <value>Date</value>
   </data>
@@ -206,6 +218,9 @@
   </data>
   <data name="EmailWithNewPasswordSent" xml:space="preserve">
     <value>Email with your new password sent</value>
+  </data>
+  <data name="EndDate" xml:space="preserve">
+    <value>End date</value>
   </data>
   <data name="EnterNameForTheSong" xml:space="preserve">
     <value>Enter a name for the song</value>
@@ -246,6 +261,15 @@
   <data name="Keys" xml:space="preserve">
     <value>Keys</value>
   </data>
+  <data name="Last6Months" xml:space="preserve">
+    <value>Last 6 months</value>
+  </data>
+  <data name="LastMonth" xml:space="preserve">
+    <value>Last month</value>
+  </data>
+  <data name="LastYear" xml:space="preserve">
+    <value>Last year</value>
+  </data>
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
@@ -257,6 +281,9 @@
   </data>
   <data name="Morning" xml:space="preserve">
     <value>morning</value>
+  </data>
+  <data name="MostPlayedSongs" xml:space="preserve">
+    <value>Most played songs</value>
   </data>
   <data name="MusicList" xml:space="preserve">
     <value>Song list</value>
@@ -296,6 +323,9 @@
   </data>
   <data name="PasswordsNotMatch" xml:space="preserve">
     <value>Passwords do not match</value>
+  </data>
+  <data name="Period" xml:space="preserve">
+    <value>Period</value>
   </data>
   <data name="Play" xml:space="preserve">
     <value>Play</value>
@@ -368,6 +398,9 @@
   </data>
   <data name="SortByOldest" xml:space="preserve">
     <value>Sort by oldest</value>
+  </data>
+  <data name="StartDate" xml:space="preserve">
+    <value>Start date</value>
   </data>
   <data name="StopSharing" xml:space="preserve">
     <value>Stop Sharing</value>
