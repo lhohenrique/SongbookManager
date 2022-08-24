@@ -1,10 +1,13 @@
 ﻿using SongbookManager.Models;
+using SongbookManager.Resx;
+using SongbookManager.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace SongbookManager.ViewModels
@@ -14,7 +17,10 @@ namespace SongbookManager.ViewModels
         public INavigation Navigation { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private MusicService musicService;
+
         private Repertoire repertoire;
+        private List<Music> musicList;
         private int musicNumber = 0;
         private int musicCount;
 
@@ -103,6 +109,8 @@ namespace SongbookManager.ViewModels
             Navigation = navigation;
             this.repertoire = repertoire;
 
+            musicService = new MusicService();
+
             NextMusicCommand = new Command(() => NextMusicAction());
             PreviousMusicCommand = new Command(() => PreviousMusicAction());
         }
@@ -112,9 +120,9 @@ namespace SongbookManager.ViewModels
         {
             int nextMusic = musicNumber + 1;
 
-            if (repertoire.Musics != null && nextMusic <= musicCount - 1)
+            if (musicList != null && nextMusic <= musicCount - 1)
             {
-                Music music = repertoire.Musics[nextMusic];
+                Music music = musicList[nextMusic];
                 if (music != null)
                 {
                     Name = music.Name;
@@ -133,9 +141,9 @@ namespace SongbookManager.ViewModels
         {
             int previousMusic = musicNumber - 1;
 
-            if (repertoire.Musics != null && previousMusic >= 0)
+            if (musicList != null && previousMusic >= 0)
             {
-                Music music = repertoire.Musics[previousMusic];
+                Music music = musicList[previousMusic];
                 if (music != null)
                 {
                     Name = music.Name;
@@ -152,23 +160,38 @@ namespace SongbookManager.ViewModels
         #endregion
 
         #region [Public Methods]
-        public void LoadPage()
+        public async Task LoadPageAsync()
         {
-            if(repertoire.Musics != null)
+            try
             {
-                musicCount = repertoire.Musics.Count;
-
-                Music music = repertoire.Musics.FirstOrDefault();
-                
-                if (music != null)
+                if (repertoire.Musics != null)
                 {
-                    Name = music.Name;
-                    Author = music.Author;
-                    SelectedKey = music.Key;
-                    Key = music.Key;
-                    Lyrics = music.Lyrics;
-                    Chords = music.Chords;
+                    musicCount = repertoire.Musics.Count;
+
+                    //Load musics from repertoire
+                    musicList = new List<Music>();
+                    foreach (MusicRep musicRep in repertoire.Musics)
+                    {
+                        Music musicLoaded = await musicService.GetMusicByNameAndAuthor(musicRep.Name, musicRep.Author, musicRep.Owner);
+                        musicList.Add(musicLoaded);
+                    }
+
+                    Music music = musicList.FirstOrDefault();
+
+                    if (music != null)
+                    {
+                        Name = music.Name;
+                        Author = music.Author;
+                        SelectedKey = music.Key;
+                        Key = music.Key;
+                        Lyrics = music.Lyrics;
+                        Chords = music.Chords;
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.CouldNotLoadSong, AppResources.Ok);
             }
         }
         #endregion

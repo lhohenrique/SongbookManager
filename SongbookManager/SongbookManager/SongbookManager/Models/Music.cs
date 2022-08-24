@@ -1,5 +1,4 @@
-﻿using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,7 +6,6 @@ namespace SongbookManager.Models
 {
     public class Music
     {
-        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Owner { get; set; }
         public string Name { get; set; }

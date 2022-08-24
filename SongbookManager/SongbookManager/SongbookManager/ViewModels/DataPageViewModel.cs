@@ -186,11 +186,11 @@ namespace SongbookManager.ViewModels
         {
             List<MusicData> musicsOrdered = new List<MusicData>();
             List<MusicData> musicDataList = new List<MusicData>();
-            List<Music> musics = new List<Music>();
+            List<MusicRep> musics = new List<MusicRep>();
 
             repertoireList.ForEach(r => musics.AddRange(r.Musics));
 
-            foreach (Music music in musics)
+            foreach (MusicRep music in musics)
             {
                 int index = musicDataList.FindIndex(m => m.Name.Equals(music.Name));
                 if (index == -1)

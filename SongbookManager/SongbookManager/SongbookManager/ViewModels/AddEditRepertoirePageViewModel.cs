@@ -70,15 +70,15 @@ namespace SongbookManager.ViewModels
             }
         }
 
-        private ObservableCollection<Music> musicList = new ObservableCollection<Music>();
-        public ObservableCollection<Music> MusicList
+        private ObservableCollection<MusicRep> musicList = new ObservableCollection<MusicRep>();
+        public ObservableCollection<MusicRep> MusicList
         {
             get { return musicList; }
             set { musicList = value; }
         }
 
-        private ObservableCollection<Music> selectedMusics = new ObservableCollection<Music>();
-        public ObservableCollection<Music> SelectedMusics
+        private ObservableCollection<MusicRep> selectedMusics = new ObservableCollection<MusicRep>();
+        public ObservableCollection<MusicRep> SelectedMusics
         {
             get
             {
@@ -93,8 +93,8 @@ namespace SongbookManager.ViewModels
             }
         }
 
-        private Music selectedMusic;
-        public Music SelectedMusic
+        private MusicRep selectedMusic;
+        public MusicRep SelectedMusic
         {
             get
             {
@@ -151,14 +151,14 @@ namespace SongbookManager.ViewModels
             {
                 string userEmail = GetSingerEmail();
 
-                foreach (Music music in SelectedMusics)
+                foreach (MusicRep music in SelectedMusics)
                 {
                     if (!string.IsNullOrEmpty(SelectedSinger))
                     {
                         var key = await keyService.GetKeyByUser(userEmail, music.Name);
                         if (key != null)
                         {
-                            music.Key = key.Key;
+                            music.SingerKey = key.Key;
                         }
                     }
                 }
@@ -202,7 +202,7 @@ namespace SongbookManager.ViewModels
             }
         }
 
-        public void SelectionChangedAction(List<Music> musics)
+        public void SelectionChangedAction(List<MusicRep> musics)
         {
             SelectedMusics.Clear();
             musics.ForEach(m => SelectedMusics.Add(m));
@@ -222,7 +222,15 @@ namespace SongbookManager.ViewModels
 
                 MusicList.Clear();
 
-                musicListUpdated.ForEach(i => MusicList.Add(i));
+                foreach (Music music in musicListUpdated)
+                {
+                    MusicList.Add(new MusicRep()
+                    {
+                        Name = music.Name,
+                        Author = music.Author,
+                        Owner = music.Owner
+                    });
+                }
             }
             catch (Exception)
             {
@@ -293,7 +301,15 @@ namespace SongbookManager.ViewModels
 
                 MusicList.Clear();
 
-                musicListUpdated.ForEach(i => MusicList.Add(i));
+                foreach (Music music in musicListUpdated)
+                {
+                    MusicList.Add(new MusicRep()
+                    {
+                        Name = music.Name,
+                        Author = music.Author,
+                        Owner = music.Owner
+                    });
+                }
             }
             catch (Exception)
             {

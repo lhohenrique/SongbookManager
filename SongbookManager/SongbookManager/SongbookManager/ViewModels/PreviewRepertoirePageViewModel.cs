@@ -56,8 +56,8 @@ namespace SongbookManager.ViewModels
             }
         }
 
-        private ObservableCollection<Music> musics = new ObservableCollection<Music>();
-        public ObservableCollection<Music> Musics
+        private ObservableCollection<MusicRep> musics = new ObservableCollection<MusicRep>();
+        public ObservableCollection<MusicRep> Musics
         {
             get { return musics; }
             set { musics = value; }

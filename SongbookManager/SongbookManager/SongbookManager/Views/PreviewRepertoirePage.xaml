@@ -42,7 +42,7 @@
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="{Binding Name}"
                                                Style="{StaticResource PrimaryLabel}"/>
-                                        <Label Text="{Binding Key}"
+                                        <Label Text="{Binding SingerKey}"
                                                Style="{StaticResource SecondaryLabel}"
                                                HorizontalOptions="EndAndExpand"/>
                                     </StackLayout>

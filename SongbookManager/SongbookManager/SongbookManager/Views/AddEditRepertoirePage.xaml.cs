@@ -34,11 +34,11 @@ namespace SongbookManager.Views
 			if (viewModel != null)
 			{
 				CollectionView collection = (CollectionView)sender;
-				List<Music> musicsSelected = new List<Music>();
+				List<MusicRep> musicsSelected = new List<MusicRep>();
 
 				foreach (var music in collection.SelectedItems)
 				{
-					musicsSelected.Add((Music)music);
+					musicsSelected.Add((MusicRep)music);
 				}
 
 				viewModel.SelectionChangedAction(musicsSelected);

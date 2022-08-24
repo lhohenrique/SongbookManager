@@ -33,16 +33,16 @@ namespace SongbookManager.Helpers
 
                 string musicList = string.Empty;
 
-                foreach (Music music in repertoire.Musics)
+                foreach (MusicRep music in repertoire.Musics)
                 {
                     musicList += "\n- " + music.Name;
                     if (!string.IsNullOrEmpty(music.Author))
                     {
                         musicList += " - " + music.Author;
                     }
-                    if (!string.IsNullOrEmpty(music.Key))
+                    if (!string.IsNullOrEmpty(music.SingerKey))
                     {
-                        string key = music.Key.Replace("#", "%23");
+                        string key = music.SingerKey.Replace("#", "%23");
                         musicList += " (" + key + ")";
                     }
                 }
@@ -61,6 +61,13 @@ namespace SongbookManager.Helpers
             {
                 await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.CouldNotSendRepertoire, AppResources.Ok);
             }
+        }
+
+        public static string GetChordsAccordingKey(string originalKey, string originalChords, string newKey)
+        {
+            string newChords = string.Empty;
+
+            return newChords;
         }
     }
 }

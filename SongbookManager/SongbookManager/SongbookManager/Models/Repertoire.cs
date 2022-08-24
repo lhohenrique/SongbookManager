@@ -7,7 +7,7 @@ namespace SongbookManager.Models
     public class Repertoire
     {
         public string Owner { get; set; }
-        public List<Music> Musics { get; set; }
+        public List<MusicRep> Musics { get; set; }
         public List<UserKey> Keys { get; set; }
         public string SingerName { get; set; }
         public string SingerEmail { get; set; }

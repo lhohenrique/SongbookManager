@@ -21,10 +21,10 @@ namespace SongbookManager.Views
             BindingContext = new PlayRepertoirePageViewModel(Navigation, repertoire);
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             var viewModel = (PlayRepertoirePageViewModel)BindingContext;
-            viewModel.LoadPage();
+            await viewModel.LoadPageAsync();
         }
     }
 }

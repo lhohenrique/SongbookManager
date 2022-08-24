@@ -198,7 +198,6 @@ namespace SongbookManager.ViewModels
                     return;
                 }
 
-                //List<Music> musicListUpdated = await App.Database.SearchMusic(SearchText);
                 var userEmail = LoggedUserHelper.GetEmail();
                 List<Repertoire> repertoireListUpdated = await repertoireService.SearchRepertoire(SearchText, userEmail);
 

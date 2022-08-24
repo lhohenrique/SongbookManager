@@ -53,6 +53,23 @@ namespace SongbookManager.Services
             return musics;
         }
 
+        public async Task<Music> GetMusicByNameAndAuthor(string name, string author, string owner)
+        {
+            var music = (await client.Child("Musics").OnceAsync<Music>()).Select(item => new Music
+            {
+                Name = item.Object.Name,
+                Author = item.Object.Author,
+                Key = item.Object.Key,
+                Lyrics = item.Object.Lyrics,
+                Chords = item.Object.Chords,
+                Owner = item.Object.Owner,
+                Version = item.Object.Version,
+                CreationDate = item.Object.CreationDate
+            }).Where(m => m.Owner.Equals(owner) && m.Name.Equals(name) && m.Author.Equals(author)).FirstOrDefault();
+
+            return music;
+        }
+
         public async Task<bool> InsertMusic(Music music)
         {
             await client.Child("Musics").PostAsync(music);
