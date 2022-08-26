@@ -171,7 +171,6 @@ namespace SongbookManager.ViewModels
                 Author = music.Author;
                 SelectedKey = music.Key;
                 Lyrics = music.Lyrics;
-                Chords = music.Chords;
 
                 IsPlayMusicVisible = !string.IsNullOrEmpty(music.Version);
 
