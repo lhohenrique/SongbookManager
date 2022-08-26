@@ -77,8 +77,8 @@ namespace SongbookManager.ViewModels
             set { musicList = value; }
         }
 
-        private ObservableCollection<MusicRep> selectedMusics = new ObservableCollection<MusicRep>();
-        public ObservableCollection<MusicRep> SelectedMusics
+        private List<MusicRep> selectedMusics = new List<MusicRep>();
+        public List<MusicRep> SelectedMusics
         {
             get
             {
@@ -202,10 +202,26 @@ namespace SongbookManager.ViewModels
             }
         }
 
-        public void SelectionChangedAction(List<MusicRep> musics)
+        public void SelectionChangedAction(MusicRep musicTapped, int musicTappedIndex)
         {
-            SelectedMusics.Clear();
-            musics.ForEach(m => SelectedMusics.Add(m));
+            if (musicTapped.IsSelected)
+            {
+                musicTapped.IsSelected = false;
+
+                SelectedMusics.Remove(musicTapped);
+
+                MusicList.RemoveAt(musicTappedIndex);
+                MusicList.Insert(musicTappedIndex, musicTapped);
+            }
+            else
+            {
+                musicTapped.IsSelected = true;
+
+                SelectedMusics.Add(musicTapped);
+
+                MusicList.RemoveAt(musicTappedIndex);
+                MusicList.Insert(musicTappedIndex, musicTapped);
+            }
         }
 
         private async Task SearchActionAsync()
@@ -265,12 +281,22 @@ namespace SongbookManager.ViewModels
             Date = repertoire.Date;
             Time = repertoire.Time;
 
-            // TODO: Fix musics selected state when seting from source
-            //if(repertoire.Musics != null)
-            //{
-                //SelectedMusic = repertoire.Musics.FirstOrDefault();
-                //repertoire.Musics.ForEach(m => SelectedMusics.Add(m));
-            //}
+            if(repertoire.Musics != null)
+            {
+                SelectedMusics = repertoire.Musics.ToList();
+
+                foreach (MusicRep musicSelected in repertoire.Musics)
+                {
+                    MusicRep item = MusicList.FirstOrDefault(m => m.Name.Equals(musicSelected.Name) && m.Author.Equals(musicSelected.Author));
+                    int index = MusicList.IndexOf(item);
+                    
+                    if(index != -1)
+                    {
+                        MusicList.RemoveAt(index);
+                        MusicList.Insert(index, musicSelected);
+                    }
+                }
+            }
         }
 
         private async Task LoadSingersAsync()
@@ -307,7 +333,8 @@ namespace SongbookManager.ViewModels
                     {
                         Name = music.Name,
                         Author = music.Author,
-                        Owner = music.Owner
+                        Owner = music.Owner,
+                        IsSelected = false
                     });
                 }
             }

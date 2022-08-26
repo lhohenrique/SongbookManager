@@ -178,7 +178,9 @@ namespace SongbookManager.ViewModels
                 await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.CouldNotLoadSong, AppResources.Ok);
             }
         }
+        #endregion
 
+        #region [Private Methods]
         private void SetMusic(Music music, MusicRep musicRep)
         {
             Name = music.Name;
@@ -215,9 +217,6 @@ namespace SongbookManager.ViewModels
                 }
             }
         }
-        #endregion
-
-        #region [Private Methods]
         #endregion
     }
 }

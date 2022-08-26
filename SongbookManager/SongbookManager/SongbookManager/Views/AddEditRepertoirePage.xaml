@@ -30,7 +30,28 @@
 
                 <SearchBar x:Name="MusicSearchBar" Placeholder="{x:Static resource:AppResources.Search}" PlaceholderColor="LightGray" Text="{Binding SearchText}" TextChanged="MusicSearchBar_TextChanged"  HorizontalOptions="FillAndExpand" />
 
-                <CollectionView x:Name="MusicListCollectionView"
+                <ListView x:Name="MusicListListView" SelectionMode="Single"
+                          ItemsSource="{Binding MusicList, Mode=OneWay}"
+                          ItemTapped="MusicListListView_ItemTapped"
+                          SelectedItem="{Binding SelectedMusic, Mode=TwoWay}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout BackgroundColor="Transparent"
+                                             Orientation="Vertical"
+                                             Padding="0,5">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Name}" Style="{StaticResource PrimaryLabel}"/>
+                                        <Image Source="selected.png" IsVisible="{Binding IsSelected}" HorizontalOptions="EndAndExpand" WidthRequest="30"/>
+                                    </StackLayout>
+                                    <Label Text="{Binding Author}" Style="{StaticResource SecondaryLabel}"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+                <!--<CollectionView x:Name="MusicListCollectionView"
                                 SelectionMode="Multiple"
                                 ItemsSource="{Binding MusicList, Mode=OneWay}"
                                 SelectedItem="{Binding SelectedMusic, Mode=OneWay}"
@@ -60,7 +81,7 @@
                             </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
-                </CollectionView>
+                </CollectionView>-->
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

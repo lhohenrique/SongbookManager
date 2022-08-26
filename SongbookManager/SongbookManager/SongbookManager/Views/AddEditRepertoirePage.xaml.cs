@@ -28,27 +28,20 @@ namespace SongbookManager.Views
 			await viewModel.PopulateRepertoireFieldsAsync();
 		}
 
-        private void MusicListCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-			var viewModel = (AddEditRepertoirePageViewModel)BindingContext;
-			if (viewModel != null)
-			{
-				CollectionView collection = (CollectionView)sender;
-				List<MusicRep> musicsSelected = new List<MusicRep>();
-
-				foreach (var music in collection.SelectedItems)
-				{
-					musicsSelected.Add((MusicRep)music);
-				}
-
-				viewModel.SelectionChangedAction(musicsSelected);
-			}
-		}
-
         private void MusicSearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
 			var viewModel = (AddEditRepertoirePageViewModel)BindingContext;
 			viewModel.SearchCommand.Execute(null);
+		}
+
+        private void MusicListListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+			var viewModel = (AddEditRepertoirePageViewModel)BindingContext;
+
+			MusicRep musicTapped = (MusicRep)e.Item;
+			int musicTappedIndex = e.ItemIndex;
+
+			viewModel.SelectionChangedAction(musicTapped, musicTappedIndex);
 		}
     }
 }
