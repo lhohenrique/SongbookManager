@@ -55,17 +55,6 @@ namespace SongbookManager.ViewModels
             }
         }
 
-        private string key;
-        public string Key
-        {
-            get { return key; }
-            set
-            {
-                key = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Key"));
-            }
-        }
-
         private string lyrics;
         public string Lyrics
         {
@@ -107,6 +96,25 @@ namespace SongbookManager.ViewModels
             {
                 isPlayMusicVisible = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("IsPlayMusicVisible"));
+            }
+        }
+
+        private ObservableCollection<string> keyList = new ObservableCollection<string>() { "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" };
+        public ObservableCollection<string> KeyList
+        {
+            get { return keyList; }
+            set { keyList = value; }
+        }
+
+        private string selectedKey;
+        public string SelectedKey
+        {
+            get { return selectedKey; }
+            set
+            {
+                selectedKey = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("SelectedKey"));
+                SetChords();
             }
         }
         #endregion
@@ -161,7 +169,7 @@ namespace SongbookManager.ViewModels
             {
                 Name = music.Name;
                 Author = music.Author;
-                Key = music.Key;
+                SelectedKey = music.Key;
                 Lyrics = music.Lyrics;
                 Chords = music.Chords;
 
@@ -225,6 +233,28 @@ namespace SongbookManager.ViewModels
             catch (Exception)
             {
                 await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.UnableToLoadKeys, AppResources.Ok);
+            }
+        }
+
+        private void SetChords()
+        {
+            if (music != null)
+            {
+                if (string.IsNullOrEmpty(selectedKey))
+                {
+                    Chords = music.Chords;
+                }
+                else
+                {
+                    if (selectedKey.Equals(music.Key))
+                    {
+                        Chords = music.Chords;
+                    }
+                    else
+                    {
+                        Chords = Utils.GetChordsAccordingKey(music.Key, music.Chords, SelectedKey);
+                    }
+                }
             }
         }
         #endregion
