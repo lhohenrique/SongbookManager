@@ -86,6 +86,7 @@ namespace SongbookManager.ViewModels
             {
                 selectedKey = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("SelectedKey"));
+                SetChords();
             }
         }
         #endregion
@@ -116,12 +117,12 @@ namespace SongbookManager.ViewModels
                 Music music = musicList[nextMusic];
                 MusicRep musicRep = repertoire.Musics[nextMusic];
 
+                musicNumber = nextMusic;
+
                 if (music != null && musicRep != null)
                 {
                     SetMusic(music, musicRep);
                 }
-
-                musicNumber = nextMusic;
             }
         }
 
@@ -134,12 +135,12 @@ namespace SongbookManager.ViewModels
                 Music music = musicList[previousMusic];
                 MusicRep musicRep = repertoire.Musics[previousMusic];
 
+                musicNumber = previousMusic;
+
                 if (music != null && musicRep != null)
                 {
                     SetMusic(music, musicRep);
                 }
-
-                musicNumber = previousMusic;
             }
         }
         #endregion
@@ -192,15 +193,19 @@ namespace SongbookManager.ViewModels
             {
                 SelectedKey = music.Key;
             }
+        }
 
-            if (string.IsNullOrEmpty(SelectedKey))
+        private void SetChords()
+        {
+            Music music = musicList[musicNumber];
+
+            if (string.IsNullOrEmpty(selectedKey))
             {
                 Chords = music.Chords;
             }
             else
             {
-                // Remove this and create a method to be called in SelectedKey property set
-                if (SelectedKey.Equals(music.Key))
+                if (selectedKey.Equals(music.Key))
                 {
                     Chords = music.Chords;
                 }
