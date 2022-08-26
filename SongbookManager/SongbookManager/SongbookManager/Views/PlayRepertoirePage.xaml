@@ -34,9 +34,8 @@
                 <StackLayout Padding="10" Spacing="20">
                     <StackLayout Orientation="Horizontal" Spacing="5">
                         <Label Text="{x:Static resource:AppResources.Key}"
-                               Style="{StaticResource MediumLabel}"></Label>
-                        <!--<Label Text="{Binding Key}"
-                               Style="{StaticResource SecondaryLabel}"></Label>-->
+                               Style="{StaticResource MediumLabel}"
+                               Padding="0,9,0,0"></Label>
                         <Picker ItemsSource="{Binding KeyList}" SelectedItem="{Binding SelectedKey}" Title="{x:Static resource:AppResources.Key}" Margin="5,0,0,0" HorizontalTextAlignment="Center"/>
                     </StackLayout>
 

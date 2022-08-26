@@ -1,4 +1,5 @@
-﻿using SongbookManager.Models;
+﻿using SongbookManager.Helpers;
+using SongbookManager.Models;
 using SongbookManager.Resx;
 using SongbookManager.Services;
 using System;
@@ -16,6 +17,7 @@ namespace SongbookManager.ViewModels
     {
         public INavigation Navigation { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
+        private bool pageLoaded = false;
 
         private MusicService musicService;
 
@@ -44,17 +46,6 @@ namespace SongbookManager.ViewModels
             {
                 author = value;
                 PropertyChanged(this, new PropertyChangedEventArgs("Author"));
-            }
-        }
-
-        private string key;
-        public string Key
-        {
-            get { return key; }
-            set
-            {
-                key = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Key"));
             }
         }
 
@@ -123,14 +114,11 @@ namespace SongbookManager.ViewModels
             if (musicList != null && nextMusic <= musicCount - 1)
             {
                 Music music = musicList[nextMusic];
-                if (music != null)
+                MusicRep musicRep = repertoire.Musics[nextMusic];
+
+                if (music != null && musicRep != null)
                 {
-                    Name = music.Name;
-                    Author = music.Author;
-                    SelectedKey = music.Key;
-                    Key = music.Key;
-                    Lyrics = music.Lyrics;
-                    Chords = music.Chords;
+                    SetMusic(music, musicRep);
                 }
 
                 musicNumber = nextMusic;
@@ -144,14 +132,11 @@ namespace SongbookManager.ViewModels
             if (musicList != null && previousMusic >= 0)
             {
                 Music music = musicList[previousMusic];
-                if (music != null)
+                MusicRep musicRep = repertoire.Musics[previousMusic];
+
+                if (music != null && musicRep != null)
                 {
-                    Name = music.Name;
-                    Author = music.Author;
-                    SelectedKey = music.Key;
-                    Key = music.Key;
-                    Lyrics = music.Lyrics;
-                    Chords = music.Chords;
+                    SetMusic(music, musicRep);
                 }
 
                 musicNumber = previousMusic;
@@ -170,28 +155,59 @@ namespace SongbookManager.ViewModels
 
                     //Load musics from repertoire
                     musicList = new List<Music>();
-                    foreach (MusicRep musicRep in repertoire.Musics)
+                    foreach (MusicRep item in repertoire.Musics)
                     {
-                        Music musicLoaded = await musicService.GetMusicByNameAndAuthor(musicRep.Name, musicRep.Author, musicRep.Owner);
+                        Music musicLoaded = await musicService.GetMusicByNameAndAuthor(item.Name, item.Author, item.Owner);
                         musicList.Add(musicLoaded);
                     }
 
                     Music music = musicList.FirstOrDefault();
+                    MusicRep musicRep = repertoire.Musics.FirstOrDefault();
 
-                    if (music != null)
+                    if (music != null && musicRep != null)
                     {
-                        Name = music.Name;
-                        Author = music.Author;
-                        SelectedKey = music.Key;
-                        Key = music.Key;
-                        Lyrics = music.Lyrics;
-                        Chords = music.Chords;
+                        SetMusic(music, musicRep);
                     }
                 }
+
+                pageLoaded = true;
             }
             catch (Exception)
             {
                 await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.CouldNotLoadSong, AppResources.Ok);
+            }
+        }
+
+        private void SetMusic(Music music, MusicRep musicRep)
+        {
+            Name = music.Name;
+            Author = music.Author;
+            Lyrics = music.Lyrics;
+
+            if (!string.IsNullOrEmpty(musicRep.SingerKey))
+            {
+                SelectedKey = musicRep.SingerKey;
+            }
+            else
+            {
+                SelectedKey = music.Key;
+            }
+
+            if (string.IsNullOrEmpty(SelectedKey))
+            {
+                Chords = music.Chords;
+            }
+            else
+            {
+                // Remove this and create a method to be called in SelectedKey property set
+                if (SelectedKey.Equals(music.Key))
+                {
+                    Chords = music.Chords;
+                }
+                else
+                {
+                    Chords = Utils.GetChordsAccordingKey(music.Key, music.Chords, SelectedKey);
+                }
             }
         }
         #endregion
