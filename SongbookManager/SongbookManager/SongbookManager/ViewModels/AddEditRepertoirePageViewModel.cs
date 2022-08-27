@@ -323,7 +323,7 @@ namespace SongbookManager.ViewModels
                 await LoggedUserHelper.UpdateLoggedUserAsync();
 
                 var userEmail = LoggedUserHelper.GetEmail();
-                List<Music> musicListUpdated = await musicService.GetMusicsByUser(userEmail);
+                List<Music> musicListUpdated = await musicService.GetMusicsByUserDescending(userEmail);
 
                 MusicList.Clear();
 

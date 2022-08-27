@@ -414,7 +414,7 @@ namespace SongbookManager.ViewModels
 
                 //List<Music> musicListUpdated = await App.Database.GetAllMusics();
                 var userEmail = LoggedUserHelper.GetEmail();
-                List<Music> musicListUpdated = await musicService.GetMusicsByUser(userEmail);
+                List<Music> musicListUpdated = await musicService.GetMusicsByUserDescending(userEmail);
 
                 MusicList.Clear();
 
