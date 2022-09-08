@@ -42,6 +42,17 @@ namespace SongbookManager.ViewModels
             }
         }
 
+        private bool isEditing;
+        public bool IsEditing
+        {
+            get { return isEditing; }
+            set
+            {
+                isEditing = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("IsEditing"));
+            }
+        }
+
         private bool isSinger;
         public bool IsSinger
         {
@@ -83,6 +94,8 @@ namespace SongbookManager.ViewModels
         #endregion
 
         #region [Commands]
+        public Command EditUserNameCommand { get; set; }
+        public Command SaveUserNameCommand { get; set; }
         public Command ChangePasswordCommand { get; set; }
         public Command FeedbackCommand { get; set; }
         public Command RateAppCommand { get; set; }
@@ -96,6 +109,8 @@ namespace SongbookManager.ViewModels
             this.Navigation = navigation;
             this.userService = new UserService();
 
+            EditUserNameCommand = new Command(() => EditUserNameAction());
+            SaveUserNameCommand = new Command(async () => await SaveUserNameAction());
             ChangePasswordCommand = new Command(() => ChangePasswordAction());
             FeedbackCommand = new Command(() => FeedbackAction());
             RateAppCommand = new Command(() => RateAppAction());
@@ -105,6 +120,30 @@ namespace SongbookManager.ViewModels
         }
 
         #region [Actions]
+        public void EditUserNameAction()
+        {
+            IsEditing = true;
+        }
+
+        public async Task SaveUserNameAction()
+        {
+            try
+            {
+                var user = LoggedUserHelper.LoggedUser;
+                user.Name = Name;
+
+                await userService.UpdateUser(user);
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                IsEditing = false;
+            }
+        }
+
         public void ChangePasswordAction()
         {
             Navigation.PushAsync(new ChangePasswordPage());
@@ -164,6 +203,7 @@ namespace SongbookManager.ViewModels
             Name = LoggedUserHelper.LoggedUser.Name;
             Email = LoggedUserHelper.LoggedUser.Email;
             IsSinger = LoggedUserHelper.LoggedUser.IsSinger;
+            IsEditing = false;
         }
 
         public void SelectedItemChangedAction()

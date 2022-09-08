@@ -2,14 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resource="clr-namespace:SongbookManager.Resx"
+             xmlns:converters="clr-namespace:SongbookManager.Converters"
              Shell.NavBarIsVisible="False"
              Style="{StaticResource BaseContentPage}"
              x:Class="SongbookManager.Views.ProfilePage">
+    <ContentPage.Resources>
+        <converters:ReverseBoolConverter x:Key="reverseBoolConverter"/>
+    </ContentPage.Resources>
     
     <ContentPage.Content>
         <StackLayout Padding="10" Spacing="10">
-            <Label Text="{Binding Name}"
-                   Style="{StaticResource TitleLabel}"></Label>
+            <StackLayout IsVisible="{Binding IsEditing, Converter={StaticResource reverseBoolConverter}}" Orientation="Horizontal">
+                <Label Text="{Binding Name}" Style="{StaticResource TitleLabel}" HorizontalOptions="FillAndExpand"></Label>
+                <ImageButton Source="edit.png" Command="{Binding EditUserNameCommand}" WidthRequest="20" BackgroundColor="Transparent"/>
+            </StackLayout>
+
+            <StackLayout IsVisible="{Binding IsEditing}" Orientation="Horizontal">
+                <Entry Text="{Binding Name}" HorizontalOptions="FillAndExpand"></Entry>
+                <ImageButton Source="save.png" Command="{Binding SaveUserNameCommand}" WidthRequest="20" BackgroundColor="Transparent"/>
+            </StackLayout>
+            
             <Label Text="{Binding Email}"
                    Style="{StaticResource SecondaryLabel}"></Label>
 
