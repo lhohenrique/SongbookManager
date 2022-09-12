@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SongbookManager.Views.AdminPage"
+             Shell.TabBarIsVisible="False"
+             Style="{StaticResource BaseContentPage}">
+
+    <ContentPage Title="Usuários" Style="{StaticResource BaseContentPage}">
+        <ContentPage.Content>
+            <ScrollView>
+                <StackLayout Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Total:" />
+                        <Label Text="{Binding TotalUsers}"/>
+                    </StackLayout>
+
+                    <ListView x:Name="UsersListView"
+                              SeparatorVisibility="Default"
+                              ItemsSource="{Binding UserList, Mode=OneWay}"
+                              HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Remover" Clicked="UserMenuItem_Clicked"/>
+                                    </ViewCell.ContextActions>
+                                    <StackLayout BackgroundColor="White"
+                                                 Orientation="Vertical"
+                                                 Padding="10,5">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Name}"
+                                                   Style="{StaticResource PrimaryLabel}"
+                                                   HorizontalOptions="FillAndExpand"/>
+                                            <Label Text="Cantor" IsVisible="{Binding IsSinger}" Style="{StaticResource SecondaryLabel}"/>
+                                        </StackLayout>
+                                        <Label Text="{Binding Email}"
+                                               Style="{StaticResource SecondaryLabel}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+
+    <ContentPage Title="Músicas" Style="{StaticResource BaseContentPage}">
+        <ContentPage.Content>
+            <ScrollView>
+                <StackLayout Padding="10">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Total:" />
+                        <Label Text="{Binding TotalMusics}"/>
+                    </StackLayout>
+
+                    <ListView x:Name="MusicsListView"
+                              SeparatorVisibility="Default"
+                              ItemsSource="{Binding MusicList, Mode=OneWay}"
+                              HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Text="Remover" Clicked="MusicMenuItem_Clicked"/>
+                                    </ViewCell.ContextActions>
+                                    <StackLayout BackgroundColor="White"
+                                                 Orientation="Vertical"
+                                                 Padding="10,5">
+                                        <Label Text="{Binding Name}"
+                                               Style="{StaticResource PrimaryLabel}"/>
+                                        <Label Text="{Binding Author}"
+                                               Style="{StaticResource SecondaryLabel}"/>
+                                        <Label Text="{Binding Owner}"
+                                               Style="{StaticResource SecondaryLabel}"/>
+                                        <Label Text="{Binding CreationDate}"
+                                               Style="{StaticResource SecondaryLabel}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
+</TabbedPage>

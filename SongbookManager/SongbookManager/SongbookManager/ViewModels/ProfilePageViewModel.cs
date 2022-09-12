@@ -195,6 +195,11 @@ namespace SongbookManager.ViewModels
                 await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
             }
         }
+
+        public void NavigateToAdminPageAction()
+        {
+            Navigation.PushAsync(new AdminPage());
+        }
         #endregion
 
         #region [Public Methods]
@@ -204,6 +209,11 @@ namespace SongbookManager.ViewModels
             Email = LoggedUserHelper.LoggedUser.Email;
             IsSinger = LoggedUserHelper.LoggedUser.IsSinger;
             IsEditing = false;
+
+            if (Email.Equals(GlobalVariables.AdminEmail) && !MenuList.Contains(GlobalVariables.AdminLabel))
+            {
+                MenuList.Add(GlobalVariables.AdminLabel);
+            }
         }
 
         public void SelectedItemChangedAction()
@@ -229,6 +239,10 @@ namespace SongbookManager.ViewModels
                 else if (SelectedMenu.Equals(AppResources.Logout))
                 {
                     LogoutAction();
+                }
+                else if (SelectedMenu.Equals(GlobalVariables.AdminLabel))
+                {
+                    NavigateToAdminPageAction();
                 }
 
                 SelectedMenu = string.Empty;

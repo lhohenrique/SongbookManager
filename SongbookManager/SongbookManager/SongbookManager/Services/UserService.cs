@@ -101,5 +101,27 @@ namespace SongbookManager.Services
 
             await client.Child("Users").Child(userToUpdate.Key).PutAsync(user);
         }
+
+        public async Task<List<User>> GetUsers()
+        {
+            var users = (await client.Child("Users").OnceAsync<User>()).Select(item => new User
+            {
+                Name = item.Object.Name,
+                Email = item.Object.Email,
+                Password = item.Object.Password,
+                SharedList = item.Object.SharedList,
+                IsSinger = item.Object.IsSinger
+            }).ToList();
+
+            return users;
+        }
+
+        public async Task DeleteUser(User user)
+        {
+            var userToDelete = (await client.Child("Users").OnceAsync<User>())
+                                                .Where(u => u.Object.Email.Equals(user.Email)).FirstOrDefault();
+
+            await client.Child("Users").Child(userToDelete.Key).DeleteAsync();
+        }
     }
 }

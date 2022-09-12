@@ -7,6 +7,11 @@ namespace SongbookManager.Helpers
 {
     public static class GlobalVariables
     {
+        #region [Admin]
+        public static string AdminLabel = "Admin";
+        public static string AdminEmail = "lho.henrique@gmail.com";
+        #endregion
+
         #region [Email]
         public static string Password = "368869Lho";
         public static string FromEmail = "songbookmanagerapp@gmail.com";
