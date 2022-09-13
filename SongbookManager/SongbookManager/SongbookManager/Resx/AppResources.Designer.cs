@@ -817,6 +817,42 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To add a new repertoire click on the add button in the lower right corner..
+        /// </summary>
+        internal static string RepertoiresAddRepertoireTutorial {
+            get {
+                return ResourceManager.GetString("RepertoiresAddRepertoireTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This page displays your list of registered or shared access repertoires..
+        /// </summary>
+        internal static string RepertoiresPageTutorial {
+            get {
+                return ResourceManager.GetString("RepertoiresPageTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To view or edit a repertoire just select the repertoire..
+        /// </summary>
+        internal static string RepertoiresPreviewRepertoireTutorial {
+            get {
+                return ResourceManager.GetString("RepertoiresPreviewRepertoireTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The search bar searches by repertoire date or singer and displays the corresponding repertoires..
+        /// </summary>
+        internal static string RepertoiresSearchTutorial {
+            get {
+                return ResourceManager.GetString("RepertoiresSearchTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A new password will be sent to the email registered to the account. After logging in with this password you can choose a new one in your profile within the application..
         /// </summary>
         internal static string ResetPasswordDescription {

@@ -369,6 +369,18 @@
   <data name="Repertoires" xml:space="preserve">
     <value>Repertoires</value>
   </data>
+  <data name="RepertoiresAddRepertoireTutorial" xml:space="preserve">
+    <value>To add a new repertoire click on the add button in the lower right corner.</value>
+  </data>
+  <data name="RepertoiresPageTutorial" xml:space="preserve">
+    <value>This page displays your list of registered or shared access repertoires.</value>
+  </data>
+  <data name="RepertoiresPreviewRepertoireTutorial" xml:space="preserve">
+    <value>To view or edit a repertoire just select the repertoire.</value>
+  </data>
+  <data name="RepertoiresSearchTutorial" xml:space="preserve">
+    <value>The search bar searches by repertoire date or singer and displays the corresponding repertoires.</value>
+  </data>
   <data name="ResetPasswordDescription" xml:space="preserve">
     <value>A new password will be sent to the email registered to the account. After logging in with this password you can choose a new one in your profile within the application.</value>
   </data>

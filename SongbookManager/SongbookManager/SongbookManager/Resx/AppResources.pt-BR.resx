@@ -369,6 +369,18 @@
   <data name="Repertoires" xml:space="preserve">
     <value>Repertórios</value>
   </data>
+  <data name="RepertoiresAddRepertoireTutorial" xml:space="preserve">
+    <value>Para adicionar um novo repertório clique no botão de adicionar no canto inferior direito.</value>
+  </data>
+  <data name="RepertoiresPageTutorial" xml:space="preserve">
+    <value>Nessa página é exibida sua lista de repertórios registrados ou de acesso compartilhado.</value>
+  </data>
+  <data name="RepertoiresPreviewRepertoireTutorial" xml:space="preserve">
+    <value>Para visualizar ou editar um repertório basta selecionar o repertório.</value>
+  </data>
+  <data name="RepertoiresSearchTutorial" xml:space="preserve">
+    <value>A barra de busca procura pela data do repertório ou pelo cantor e exibe os repertórios correspondentes.</value>
+  </data>
   <data name="ResetPasswordDescription" xml:space="preserve">
     <value>Uma nova senha de acesso será enviada para o e-mail registrado na conta. Após logar com essa senha você poderá escolher uma nova no seu perfil dentro da aplicação.</value>
   </data>

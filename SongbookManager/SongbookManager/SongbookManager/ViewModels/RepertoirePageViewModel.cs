@@ -136,6 +136,14 @@ namespace SongbookManager.ViewModels
                 DataAction();
             });
         }
+
+        public ICommand TutorialCommand
+        {
+            get => new Command(async () =>
+            {
+                await TutorialAction();
+            });
+        }
         #endregion
 
         public RepertoirePageViewModel(INavigation navigation)
@@ -230,6 +238,17 @@ namespace SongbookManager.ViewModels
         private void DataAction()
         {
             Navigation.PushAsync(new DataPage());
+        }
+
+        private async Task TutorialAction()
+        {
+            string message = string.Empty;
+            message += "- " + AppResources.RepertoiresPageTutorial;
+            message += "\n\n- " + AppResources.RepertoiresAddRepertoireTutorial;
+            message += "\n\n- " + AppResources.RepertoiresPreviewRepertoireTutorial;
+            message += "\n\n- " + AppResources.RepertoiresSearchTutorial;
+
+            await Application.Current.MainPage.DisplayAlert(AppResources.Tutorial, message, AppResources.Ok);
         }
         #endregion
 

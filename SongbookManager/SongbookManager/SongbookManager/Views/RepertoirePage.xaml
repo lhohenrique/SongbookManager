@@ -9,6 +9,7 @@
         <ToolbarItem Text="{x:Static resource:AppResources.SortByMostRecent}" Order="Secondary" Command="{Binding MostRecentOrderCommand}"/>
         <ToolbarItem Text="{x:Static resource:AppResources.SortByOldest}" Order="Secondary" Command="{Binding OldestOrderCommand}"/>
         <ToolbarItem Text="{x:Static resource:AppResources.Data}" Order="Secondary" Command="{Binding DataCommand}"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.Tutorial}" Order="Secondary" Command="{Binding TutorialCommand}"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>

@@ -33,6 +33,11 @@ namespace SongbookManager.Helpers
         public static string MusicsPreviewMusicTutorial = AppResources.MusicsPreviewMusicTutorial;
         public static string MusicsSearchTutorial = AppResources.MusicsSearchTutorial;
         public static string MusicsShareListTutorial = AppResources.MusicsShareListTutorial;
+
+        public static string RepertoiresPageTutorial = AppResources.RepertoiresPageTutorial;
+        public static string RepertoiresAddRepertoireTutorial = AppResources.RepertoiresAddRepertoireTutorial;
+        public static string RepertoiresPreviewRepertoireTutorial = AppResources.RepertoiresPreviewRepertoireTutorial;
+        public static string RepertoiresSearchTutorial = AppResources.RepertoiresSearchTutorial;
         #endregion
 
         #region [Privacy Policy]
