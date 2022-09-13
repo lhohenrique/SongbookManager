@@ -205,6 +205,17 @@ namespace SongbookManager.ViewModels
                 PropertyChanged(this, new PropertyChangedEventArgs("IsUpdating"));
             }
         }
+
+        private int totalMusics;
+        public int TotalMusics
+        {
+            get { return totalMusics; }
+            set
+            {
+                totalMusics = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("TotalMusics"));
+            }
+        }
         #endregion
 
         #region [Commands]
@@ -344,6 +355,14 @@ namespace SongbookManager.ViewModels
                 OldestOrderAction();
             });
         }
+
+        public ICommand TutorialCommand
+        {
+            get => new Command(async () =>
+            {
+                await TutorialAction();
+            });
+        }
         #endregion
 
         public MusicPageViewModel(INavigation navigation)
@@ -419,6 +438,8 @@ namespace SongbookManager.ViewModels
                 MusicList.Clear();
 
                 musicListUpdated.ForEach(i => MusicList.Add(i));
+
+                TotalMusics = MusicList.Count;
             }
             catch (Exception)
             {
@@ -480,6 +501,19 @@ namespace SongbookManager.ViewModels
             
             MusicList.Clear();
             orderedList.ForEach(i => MusicList.Add(i));
+        }
+
+        private async Task TutorialAction()
+        {
+            string message = string.Empty;
+            message += "- " + AppResources.MusicsPageTutorial;
+            message += "\n\n- " + AppResources.MusicsAddMusicTutorial;
+            message += "\n*" + AppResources.MusicsListSharedTutorial;
+            message += "\n\n- " + AppResources.MusicsPreviewMusicTutorial;
+            message += "\n\n- " + AppResources.MusicsSearchTutorial;
+            message += "\n\n- " + AppResources.MusicsShareListTutorial;
+
+            await Application.Current.MainPage.DisplayAlert(AppResources.Tutorial, message, AppResources.Ok);
         }
         #endregion
 

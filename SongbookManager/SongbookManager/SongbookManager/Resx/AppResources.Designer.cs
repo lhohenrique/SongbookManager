@@ -583,6 +583,60 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To add a new song click on the add button in the lower right corner..
+        /// </summary>
+        internal static string MusicsAddMusicTutorial {
+            get {
+                return ResourceManager.GetString("MusicsAddMusicTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you are accessing a shared playlist this song will be added to the list of whoever is sharing the playlist..
+        /// </summary>
+        internal static string MusicsListSharedTutorial {
+            get {
+                return ResourceManager.GetString("MusicsListSharedTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On this page, your list of registered or shared access songs is displayed..
+        /// </summary>
+        internal static string MusicsPageTutorial {
+            get {
+                return ResourceManager.GetString("MusicsPageTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To view or edit a song just select the song..
+        /// </summary>
+        internal static string MusicsPreviewMusicTutorial {
+            get {
+                return ResourceManager.GetString("MusicsPreviewMusicTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The search bar searches by song name and displays matching songs..
+        /// </summary>
+        internal static string MusicsSearchTutorial {
+            get {
+                return ResourceManager.GetString("MusicsSearchTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To share your playlist with others click on the &apos;Share&apos; button in the top menu..
+        /// </summary>
+        internal static string MusicsShareListTutorial {
+            get {
+                return ResourceManager.GetString("MusicsShareListTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         internal static string Name {

@@ -26,6 +26,15 @@ namespace SongbookManager.Helpers
         public static string NightPeriod = AppResources.Night;
         #endregion
 
+        #region [Tutorial]
+        public static string MusicsPageTutorial = AppResources.MusicsPageTutorial;
+        public static string MusicsAddMusicTutorial = AppResources.MusicsAddMusicTutorial;
+        public static string MusicsListSharedTutorial = AppResources.MusicsListSharedTutorial;
+        public static string MusicsPreviewMusicTutorial = AppResources.MusicsPreviewMusicTutorial;
+        public static string MusicsSearchTutorial = AppResources.MusicsSearchTutorial;
+        public static string MusicsShareListTutorial = AppResources.MusicsShareListTutorial;
+        #endregion
+
         #region [Privacy Policy]
         public static string PrivacyPolicy = @"<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width'>"+
         "<title>Privacy Policy</title>"+

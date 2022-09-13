@@ -26,6 +26,7 @@
         <ToolbarItem Text="{x:Static resource:AppResources.SortByAlphabet}" Order="Secondary" Command="{Binding AlphabeticalOrderCommand}"/>
         <ToolbarItem Text="{x:Static resource:AppResources.SortByMostRecent}" Order="Secondary" Command="{Binding MostRecentOrderCommand}"/>
         <ToolbarItem Text="{x:Static resource:AppResources.SortByOldest}" Order="Secondary" Command="{Binding OldestOrderCommand}"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.Tutorial}" Order="Secondary" Command="{Binding TutorialCommand}"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -42,7 +43,15 @@
                                   SeparatorVisibility="Default"
                                   SelectedItem="{Binding SelectedMusic}"
                                   ItemsSource="{Binding MusicList, Mode=OneWay}"
+                                  Header="{Binding}"
                                   HasUnevenRows="True">
+                            <ListView.HeaderTemplate>
+                                <DataTemplate>
+                                    <ContentView BackgroundColor="White">
+                                        <Label Padding="5" HorizontalOptions="CenterAndExpand" Text="{Binding TotalMusics, StringFormat='Total: {0}'}" Style="{StaticResource SecondaryLabel}"/>
+                                    </ContentView>
+                                </DataTemplate>
+                            </ListView.HeaderTemplate>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>

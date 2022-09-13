@@ -291,6 +291,24 @@
   <data name="Musics" xml:space="preserve">
     <value>Músicas</value>
   </data>
+  <data name="MusicsAddMusicTutorial" xml:space="preserve">
+    <value>Para adicionar uma nova música clique no botão de adicionar no canto inferior direito.</value>
+  </data>
+  <data name="MusicsListSharedTutorial" xml:space="preserve">
+    <value>Se você estiver acessando uma lista compartilhada essa música será adicionada na lista de quem está compartilhando a lista.</value>
+  </data>
+  <data name="MusicsPageTutorial" xml:space="preserve">
+    <value>Nessa página é exibida sua lista de músicas registradas ou de acesso compartilhado.</value>
+  </data>
+  <data name="MusicsPreviewMusicTutorial" xml:space="preserve">
+    <value>Para visualizar ou editar uma música basta selecionar a música.</value>
+  </data>
+  <data name="MusicsSearchTutorial" xml:space="preserve">
+    <value>A barra de busca procura pelo nome da música e exibe as músicas correspondentes.</value>
+  </data>
+  <data name="MusicsShareListTutorial" xml:space="preserve">
+    <value>Para compartilhar sua lista de músicas com outras pessoas clique no botão de 'Share' no menu de cima.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Nome</value>
   </data>

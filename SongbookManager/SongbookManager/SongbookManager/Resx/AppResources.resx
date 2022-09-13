@@ -291,6 +291,24 @@
   <data name="Musics" xml:space="preserve">
     <value>Songs</value>
   </data>
+  <data name="MusicsAddMusicTutorial" xml:space="preserve">
+    <value>To add a new song click on the add button in the lower right corner.</value>
+  </data>
+  <data name="MusicsListSharedTutorial" xml:space="preserve">
+    <value>If you are accessing a shared playlist this song will be added to the list of whoever is sharing the playlist.</value>
+  </data>
+  <data name="MusicsPageTutorial" xml:space="preserve">
+    <value>On this page, your list of registered or shared access songs is displayed.</value>
+  </data>
+  <data name="MusicsPreviewMusicTutorial" xml:space="preserve">
+    <value>To view or edit a song just select the song.</value>
+  </data>
+  <data name="MusicsSearchTutorial" xml:space="preserve">
+    <value>The search bar searches by song name and displays matching songs.</value>
+  </data>
+  <data name="MusicsShareListTutorial" xml:space="preserve">
+    <value>To share your playlist with others click on the 'Share' button in the top menu.</value>
+  </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
   </data>
