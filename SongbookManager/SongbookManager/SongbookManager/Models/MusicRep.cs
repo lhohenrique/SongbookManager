@@ -11,5 +11,6 @@ namespace SongbookManager.Models
         public string Author { get; set; }
         public string SingerKey { get; set; }
         public bool IsSelected { get; set; }
+        public bool IsReordering { get; set; }
     }
 }

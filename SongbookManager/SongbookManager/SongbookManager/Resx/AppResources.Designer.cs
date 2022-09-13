@@ -970,6 +970,15 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tutorial.
+        /// </summary>
+        internal static string Tutorial {
+            get {
+                return ResourceManager.GetString("Tutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to perform search.
         /// </summary>
         internal static string UnablePerformSearch {

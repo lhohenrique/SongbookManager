@@ -2,10 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resource="clr-namespace:SongbookManager.Resx"
+             xmlns:converters="clr-namespace:SongbookManager.Converters"
              Shell.TabBarIsVisible="False"
              Style="{StaticResource BaseContentPage}"
              x:Class="SongbookManager.Views.PreviewRepertoirePage">
-
+    <ContentPage.Resources>
+        <converters:ReverseBoolConverter x:Key="reverseBoolConverter"/>
+    </ContentPage.Resources>
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{x:Static resource:AppResources.PlayRepertoire}" Order="Primary" Command="{Binding PlayRepertoireCommand}" IconImageSource="previewRepertoire.png"/>
         <ToolbarItem Text="{x:Static resource:AppResources.PlayRepertoire}" Order="Primary" Command="{Binding SendRepertoireCommand}" IconImageSource="sent.png"/>
@@ -30,10 +34,11 @@
                        Style="{StaticResource TitleLabel}"></Label>
                 
                 <ListView x:Name="RepertoireMusicsListView"
-                                SeparatorVisibility="Default"
-                                SelectionMode="None"
-                                ItemsSource="{Binding Musics, Mode=OneWay}"
-                                HasUnevenRows="True">
+                          SeparatorVisibility="Default"
+                          SelectionMode="None"
+                          ItemsSource="{Binding Musics, Mode=OneWay}"
+                          ItemTapped="RepertoireMusicsListView_ItemTapped"
+                          HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -43,8 +48,13 @@
                                         <Label Text="{Binding Name}"
                                                Style="{StaticResource PrimaryLabel}"/>
                                         <Label Text="{Binding SingerKey}"
+                                               IsVisible="{Binding IsReordering, Converter={StaticResource reverseBoolConverter}}"
                                                Style="{StaticResource SecondaryLabel}"
                                                HorizontalOptions="EndAndExpand"/>
+                                        <Image Source="reorder.png"
+                                               IsVisible="{Binding IsReordering}"
+                                               HorizontalOptions="EndAndExpand"
+                                               WidthRequest="30"/>
                                     </StackLayout>
                                     <Label Text="{Binding Author}"
                                            Style="{StaticResource SecondaryLabel}"/>

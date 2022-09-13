@@ -26,5 +26,15 @@ namespace SongbookManager.Views
             var viewModel = (PreviewRepertoirePageViewModel)BindingContext;
             viewModel.LoadPage();
         }
+
+        private async void RepertoireMusicsListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var viewModel = (PreviewRepertoirePageViewModel)BindingContext;
+
+            MusicRep musicTapped = (MusicRep)e.Item;
+            int musicTappedIndex = e.ItemIndex;
+
+            await viewModel.SelectionChangedAction(musicTapped, musicTappedIndex);
+        }
     }
 }

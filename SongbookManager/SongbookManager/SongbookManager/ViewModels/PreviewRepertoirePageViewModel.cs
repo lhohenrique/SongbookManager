@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -21,6 +22,9 @@ namespace SongbookManager.ViewModels
         private RepertoireService repertoireService;
 
         private Repertoire repertoire;
+        private bool isReordering = false;
+        private MusicRep musicToReorder;
+        private int musicIndexToReorder = -1;
 
         #region [Properties]
         private string name;
@@ -146,6 +150,54 @@ namespace SongbookManager.ViewModels
                     {
                         repertoire.Musics.ForEach(m => Musics.Add(m));
                     }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        public async Task SelectionChangedAction(MusicRep musicTapped, int musicTappedIndex)
+        {
+            try
+            {
+                if (musicTapped.IsReordering)
+                {
+                    musicTapped.IsReordering = false;
+
+                    Musics.RemoveAt(musicTappedIndex);
+                    Musics.Insert(musicTappedIndex, musicTapped);
+
+                    isReordering = false;
+                    musicToReorder = null;
+                    musicIndexToReorder = -1;
+                }
+                else if (isReordering)
+                {
+                    musicToReorder.IsReordering = false;
+
+                    Musics.RemoveAt(musicIndexToReorder);
+                    Musics.Insert(musicTappedIndex, musicToReorder);
+
+                    isReordering = false;
+                    musicToReorder = null;
+                    musicIndexToReorder = -1;
+
+                    // Update Repertoire
+                    repertoire.Musics = Musics.ToList();
+                    await repertoireService.UpdateRepertoire(repertoire, repertoire.Date, repertoire.Time);
+                }
+                else
+                {
+                    musicTapped.IsReordering = true;
+
+                    Musics.RemoveAt(musicTappedIndex);
+                    Musics.Insert(musicTappedIndex, musicTapped);
+
+                    isReordering = true;
+                    musicToReorder = musicTapped;
+                    musicIndexToReorder = musicTappedIndex;
                 }
             }
             catch (Exception)
