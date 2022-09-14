@@ -70,6 +70,60 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lyrics can be wrong if the key of the song is changed..
+        /// </summary>
+        internal static string AddMusicChordsLyricsTutorial {
+            get {
+                return ResourceManager.GetString("AddMusicChordsLyricsTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In the chord field enter only the figures without the lyrics..
+        /// </summary>
+        internal static string AddMusicChordsTutorial {
+            get {
+                return ResourceManager.GetString("AddMusicChordsTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When changing the key of the music the chords will be adjusted automatically..
+        /// </summary>
+        internal static string AddMusicKeysTutorial {
+            get {
+                return ResourceManager.GetString("AddMusicKeysTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On the profile page you will be able to define if you are a singer or not..
+        /// </summary>
+        internal static string AddMusicProfileTutorial {
+            get {
+                return ResourceManager.GetString("AddMusicProfileTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In the tone field, the singers who have access to the song will be displayed and you will be able to define the tone of each singer..
+        /// </summary>
+        internal static string AddMusicSingersKeysTutorial {
+            get {
+                return ResourceManager.GetString("AddMusicSingersKeysTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The song version must be a YouTube, Spotify or Deezer link..
+        /// </summary>
+        internal static string AddMusicVersionTutorial {
+            get {
+                return ResourceManager.GetString("AddMusicVersionTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add people.
         /// </summary>
         internal static string AddPeople {

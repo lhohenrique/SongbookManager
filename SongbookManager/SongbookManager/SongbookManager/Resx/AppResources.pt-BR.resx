@@ -120,6 +120,24 @@
   <data name="AccessingSharedList" xml:space="preserve">
     <value>Acessando uma lista compartilhada</value>
   </data>
+  <data name="AddMusicChordsLyricsTutorial" xml:space="preserve">
+    <value>A letra pode ficar errada se o tom da música for alterado.</value>
+  </data>
+  <data name="AddMusicChordsTutorial" xml:space="preserve">
+    <value>No campo de acordes insira apenas as cifras sem a letra.</value>
+  </data>
+  <data name="AddMusicKeysTutorial" xml:space="preserve">
+    <value>Ao mudar o tom da música as cifras serão ajustadas automaticamente.</value>
+  </data>
+  <data name="AddMusicProfileTutorial" xml:space="preserve">
+    <value>Na página do perfil você poderá definir se é um cantor ou não.</value>
+  </data>
+  <data name="AddMusicSingersKeysTutorial" xml:space="preserve">
+    <value>No campo de tons serão exibidos os cantores que tem acesso à música e você poderá definir o tom de cada cantor.</value>
+  </data>
+  <data name="AddMusicVersionTutorial" xml:space="preserve">
+    <value>A versão da música deve ser um link do YouTube, Spotify ou Deezer.</value>
+  </data>
   <data name="AddPeople" xml:space="preserve">
     <value>Adicione pessoas</value>
   </data>

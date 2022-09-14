@@ -120,6 +120,24 @@
   <data name="AccessingSharedList" xml:space="preserve">
     <value>Accessing a shared list</value>
   </data>
+  <data name="AddMusicChordsLyricsTutorial" xml:space="preserve">
+    <value>Lyrics can be wrong if the key of the song is changed.</value>
+  </data>
+  <data name="AddMusicChordsTutorial" xml:space="preserve">
+    <value>In the chord field enter only the figures without the lyrics.</value>
+  </data>
+  <data name="AddMusicKeysTutorial" xml:space="preserve">
+    <value>When changing the key of the music the chords will be adjusted automatically.</value>
+  </data>
+  <data name="AddMusicProfileTutorial" xml:space="preserve">
+    <value>On the profile page you will be able to define if you are a singer or not.</value>
+  </data>
+  <data name="AddMusicSingersKeysTutorial" xml:space="preserve">
+    <value>In the tone field, the singers who have access to the song will be displayed and you will be able to define the tone of each singer.</value>
+  </data>
+  <data name="AddMusicVersionTutorial" xml:space="preserve">
+    <value>The song version must be a YouTube, Spotify or Deezer link.</value>
+  </data>
   <data name="AddPeople" xml:space="preserve">
     <value>Add people</value>
   </data>

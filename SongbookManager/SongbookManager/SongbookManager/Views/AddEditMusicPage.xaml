@@ -15,6 +15,7 @@
     
     <TabbedPage.ToolbarItems>
         <ToolbarItem Text="{x:Static resource:AppResources.Save}" Order="Primary" Command="{Binding SaveMusicCommand}" IconImageSource="save.png"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.Tutorial}" Order="Secondary" Command="{Binding TutorialCommand}"/>
     </TabbedPage.ToolbarItems>
 
     <ContentPage Title="{x:Static resource:AppResources.Details}" Style="{StaticResource BaseContentPage}">

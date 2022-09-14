@@ -138,6 +138,14 @@ namespace SongbookManager.ViewModels
                 await SaveMusicAction();
             });
         }
+
+        public ICommand TutorialCommand
+        {
+            get => new Command(async () =>
+            {
+                await TutorialAction();
+            });
+        }
         #endregion
 
         public AddEditMusicPageViewModel(INavigation navigation, Music music)
@@ -227,6 +235,20 @@ namespace SongbookManager.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.CouldNotSaveSong, AppResources.Ok);
             }
+        }
+
+        private async Task TutorialAction()
+        {
+            string message = string.Empty;
+
+            message += "- " + AppResources.AddMusicVersionTutorial;
+            message += "\n\n- " + AppResources.AddMusicChordsTutorial;
+            message += "\n*" + AppResources.AddMusicChordsLyricsTutorial;
+            message += "\n\n- " + AppResources.AddMusicKeysTutorial;
+            message += "\n\n- " + AppResources.AddMusicSingersKeysTutorial;
+            message += "\n*" + AppResources.AddMusicProfileTutorial;
+
+            await Application.Current.MainPage.DisplayAlert(AppResources.Tutorial, message, AppResources.Ok);
         }
         #endregion
 

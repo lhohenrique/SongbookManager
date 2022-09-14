@@ -38,6 +38,13 @@ namespace SongbookManager.Helpers
         public static string RepertoiresAddRepertoireTutorial = AppResources.RepertoiresAddRepertoireTutorial;
         public static string RepertoiresPreviewRepertoireTutorial = AppResources.RepertoiresPreviewRepertoireTutorial;
         public static string RepertoiresSearchTutorial = AppResources.RepertoiresSearchTutorial;
+
+        public static string AddMusicVersionTutorial = AppResources.AddMusicVersionTutorial;
+        public static string AddMusicChordsTutorial = AppResources.AddMusicChordsTutorial;
+        public static string AddMusicChordsLyricsTutorial = AppResources.AddMusicChordsLyricsTutorial;
+        public static string AddMusicKeysTutorial = AppResources.AddMusicKeysTutorial;
+        public static string AddMusicSingersKeysTutorial = AppResources.AddMusicSingersKeysTutorial;
+        public static string AddMusicProfileTutorial = AppResources.AddMusicProfileTutorial;
         #endregion
 
         #region [Privacy Policy]
