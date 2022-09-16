@@ -459,6 +459,21 @@
   <data name="Share" xml:space="preserve">
     <value>Compartilhar</value>
   </data>
+  <data name="SharePageNotShareTutorial" xml:space="preserve">
+    <value>Se você estiver acessando uma lista compartilhada você não poderá compartilha-la com outras pessoas.</value>
+  </data>
+  <data name="SharePagePersonalListTutorial" xml:space="preserve">
+    <value>Caso você tenha músicas em sua lista pessoal, ao acessar uma lista compartilhada as suas música serão mantidas, porém você não verá elas na página de músicas a não ser que você saia do compartilhamento.</value>
+  </data>
+  <data name="SharePageSharedListTutorial" xml:space="preserve">
+    <value>Se você estiver acessando uma lista compartilhada você só verá a lista de música compartilhada e toda modificação que você realizar será feita nessa lista compartilhada.</value>
+  </data>
+  <data name="SharePageTutorial" xml:space="preserve">
+    <value>Nessa página é possível compartilhar sua lista de músicas com outras pessoas ou gerenciar esse compartilhamento, removendo pessoas ou saindo de um compartilhamento.</value>
+  </data>
+  <data name="SharePermissionTutorial" xml:space="preserve">
+    <value>Quando você compartilhar sua lista com outras pessoas elas terão permissão para visualizar e editar essa lista.</value>
+  </data>
   <data name="ShareYourSongs" xml:space="preserve">
     <value>Compartilhe suas músicas</value>
   </data>

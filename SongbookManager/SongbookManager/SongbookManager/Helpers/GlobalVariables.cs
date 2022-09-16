@@ -60,6 +60,12 @@ namespace SongbookManager.Helpers
         public static string PreviewRepertoirePlayTutorial = AppResources.PreviewRepertoirePlayTutorial;
         public static string PreviewRepertoireSendTutorial = AppResources.PreviewRepertoireSendTutorial;
         public static string PreviewRepertoireEditRemoveTutorial = AppResources.PreviewRepertoireEditRemoveTutorial;
+
+        public static string SharePageTutorial = AppResources.SharePageTutorial;
+        public static string SharePermissionTutorial = AppResources.SharePermissionTutorial;
+        public static string SharePageNotShareTutorial = AppResources.SharePageNotShareTutorial;
+        public static string SharePageSharedListTutorial = AppResources.SharePageSharedListTutorial;
+        public static string SharePagePersonalListTutorial = AppResources.SharePagePersonalListTutorial;
         #endregion
 
         #region [Privacy Policy]

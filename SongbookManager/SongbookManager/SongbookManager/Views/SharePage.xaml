@@ -11,7 +11,11 @@
     <ContentPage.Resources>
         <converters:ReverseBoolConverter x:Key="reverseBoolConverter"/>
     </ContentPage.Resources>
-    
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="{x:Static resource:AppResources.Tutorial}" Order="Secondary" Command="{Binding TutorialCommand}"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Orientation="Vertical" IsVisible="{Binding IsSharedList}" Padding="10" Spacing="10">

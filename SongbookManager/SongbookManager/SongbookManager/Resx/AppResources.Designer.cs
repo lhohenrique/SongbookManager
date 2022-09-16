@@ -1087,6 +1087,51 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If you are accessing a shared list you will not be able to share it with other people..
+        /// </summary>
+        internal static string SharePageNotShareTutorial {
+            get {
+                return ResourceManager.GetString("SharePageNotShareTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you have songs in your list, accessing a shared list will keep your songs, but you won&apos;t see them on the music page unless you unshare..
+        /// </summary>
+        internal static string SharePagePersonalListTutorial {
+            get {
+                return ResourceManager.GetString("SharePagePersonalListTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you are accessing a shared playlist you will only see the shared playlist and any changes you make will be made to that shared list..
+        /// </summary>
+        internal static string SharePageSharedListTutorial {
+            get {
+                return ResourceManager.GetString("SharePageSharedListTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to From this page you can share your list with others or manage this sharing by removing people or leaving a share..
+        /// </summary>
+        internal static string SharePageTutorial {
+            get {
+                return ResourceManager.GetString("SharePageTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When you share your list with others, they will have permission to view and edit that list..
+        /// </summary>
+        internal static string SharePermissionTutorial {
+            get {
+                return ResourceManager.GetString("SharePermissionTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Share your songs.
         /// </summary>
         internal static string ShareYourSongs {

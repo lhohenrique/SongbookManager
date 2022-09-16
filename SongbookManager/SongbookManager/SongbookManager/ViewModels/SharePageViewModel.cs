@@ -102,6 +102,7 @@ namespace SongbookManager.ViewModels
         public Command UpdateUserListCommand { get; set; }
         public Command<User> RemoveShareCommand { get; set; }
         public Command UnshareCommand { get; set; }
+        public Command TutorialCommand { get; set; }
         #endregion
 
         public SharePageViewModel(INavigation navigation)
@@ -110,6 +111,7 @@ namespace SongbookManager.ViewModels
             UpdateUserListCommand = new Command(async () => await UpdateUserListAction());
             RemoveShareCommand = new Command<User>(async (User user) => await RemoveShareAction(user));
             UnshareCommand = new Command(async () => await UnshareAction());
+            TutorialCommand = new Command(async () => await TutorialActionAsync());
 
             Navigation = navigation;
             userService = new UserService();
@@ -221,6 +223,17 @@ namespace SongbookManager.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.UnableToUnshare, AppResources.Ok);
             }
+        }
+
+        private async Task TutorialActionAsync()
+        {
+            string message = string.Empty;
+            message += "- " + AppResources.SharePageTutorial;
+            message += "\n\n- " + AppResources.SharePermissionTutorial;
+            message += "\n\n- " + AppResources.SharePageNotShareTutorial;
+            message += "\n\n- " + AppResources.SharePageSharedListTutorial;
+            message += "\n\n- " + AppResources.SharePagePersonalListTutorial;
+            await Application.Current.MainPage.DisplayAlert(AppResources.Tutorial, message, AppResources.Ok);
         }
         #endregion
 

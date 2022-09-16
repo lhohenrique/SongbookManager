@@ -459,6 +459,21 @@
   <data name="Share" xml:space="preserve">
     <value>Share</value>
   </data>
+  <data name="SharePageNotShareTutorial" xml:space="preserve">
+    <value>If you are accessing a shared list you will not be able to share it with other people.</value>
+  </data>
+  <data name="SharePagePersonalListTutorial" xml:space="preserve">
+    <value>If you have songs in your list, accessing a shared list will keep your songs, but you won't see them on the music page unless you unshare.</value>
+  </data>
+  <data name="SharePageSharedListTutorial" xml:space="preserve">
+    <value>If you are accessing a shared playlist you will only see the shared playlist and any changes you make will be made to that shared list.</value>
+  </data>
+  <data name="SharePageTutorial" xml:space="preserve">
+    <value>From this page you can share your list with others or manage this sharing by removing people or leaving a share.</value>
+  </data>
+  <data name="SharePermissionTutorial" xml:space="preserve">
+    <value>When you share your list with others, they will have permission to view and edit that list.</value>
+  </data>
   <data name="ShareYourSongs" xml:space="preserve">
     <value>Share your songs</value>
   </data>
