@@ -880,6 +880,51 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In the secondary menu it is possible to edit or remove the repertoire..
+        /// </summary>
+        internal static string PreviewRepertoireEditRemoveTutorial {
+            get {
+                return ResourceManager.GetString("PreviewRepertoireEditRemoveTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This screen displays the details of the repertoire such as singer, schedules and songs with the singer&apos;s key, if defined in the song..
+        /// </summary>
+        internal static string PreviewRepertoirePageTutorial {
+            get {
+                return ResourceManager.GetString("PreviewRepertoirePageTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In the top menu it is possible to enter the repertoire playback mode by clicking on the left button..
+        /// </summary>
+        internal static string PreviewRepertoirePlayTutorial {
+            get {
+                return ResourceManager.GetString("PreviewRepertoirePlayTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It is also possible to reorder the songs in the list. To reorder, select the song you want to change position and then select the position you want it to be in..
+        /// </summary>
+        internal static string PreviewRepertoireReorderTutorial {
+            get {
+                return ResourceManager.GetString("PreviewRepertoireReorderTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By clicking on the button on the right it is possible to send this repertoire in text format..
+        /// </summary>
+        internal static string PreviewRepertoireSendTutorial {
+            get {
+                return ResourceManager.GetString("PreviewRepertoireSendTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Privacy policy.
         /// </summary>
         internal static string PrivacyPolicy {

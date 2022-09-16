@@ -73,6 +73,7 @@ namespace SongbookManager.ViewModels
         public Command SendRepertoireCommand { get; set; }
         public Command EditRepertoireCommand { get; set; }
         public Command RemoveRepertoireCommand { get; set; }
+        public Command TutorialCommand { get; set; }
         #endregion
 
         public PreviewRepertoirePageViewModel(INavigation navigation, Repertoire repertoire)
@@ -84,6 +85,7 @@ namespace SongbookManager.ViewModels
             SendRepertoireCommand = new Command(async () => await SendRepertoireAction());
             EditRepertoireCommand = new Command(() => EditRepertoireAction());
             RemoveRepertoireCommand = new Command(async () => await RemoveRepertoireAction());
+            TutorialCommand = new Command(async () => await TutorialActionAsync());
 
             repertoireService = new RepertoireService();
         }
@@ -130,6 +132,18 @@ namespace SongbookManager.ViewModels
             }
 
             await Navigation.PopAsync();
+        }
+
+        private async Task TutorialActionAsync()
+        {
+            string message = string.Empty;
+            message += "- " + AppResources.PreviewRepertoirePageTutorial;
+            message += "\n\n- " + AppResources.PreviewRepertoireReorderTutorial;
+            message += "\n\n- " + AppResources.PreviewRepertoirePlayTutorial;
+            message += "\n\n- " + AppResources.PreviewRepertoireSendTutorial;
+            message += "\n\n- " + AppResources.PreviewRepertoireEditRemoveTutorial;
+
+            await Application.Current.MainPage.DisplayAlert(AppResources.Tutorial, message, AppResources.Ok);
         }
         #endregion
 

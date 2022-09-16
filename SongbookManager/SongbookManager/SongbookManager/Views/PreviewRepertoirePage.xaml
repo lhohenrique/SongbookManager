@@ -15,6 +15,7 @@
         <ToolbarItem Text="{x:Static resource:AppResources.PlayRepertoire}" Order="Primary" Command="{Binding SendRepertoireCommand}" IconImageSource="sent.png"/>
         <ToolbarItem Text="{x:Static resource:AppResources.Edit}" Order="Secondary" Command="{Binding EditRepertoireCommand}" IconImageSource="edit.png"/>
         <ToolbarItem Text="{x:Static resource:AppResources.Delete}" Order="Secondary" Command="{Binding RemoveRepertoireCommand}" IconImageSource="delete.png"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.Tutorial}" Order="Secondary" Command="{Binding TutorialCommand}"/>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>

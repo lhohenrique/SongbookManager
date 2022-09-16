@@ -54,6 +54,12 @@ namespace SongbookManager.Helpers
         public static string RepertoiresSearchTutorial = AppResources.RepertoiresSearchTutorial;
 
         public static string AddRepertoirePageTutorial = AppResources.AddRepertoirePageTutorial;
+
+        public static string PreviewRepertoirePageTutorial = AppResources.PreviewRepertoirePageTutorial;
+        public static string PreviewRepertoireReorderTutorial = AppResources.PreviewRepertoireReorderTutorial;
+        public static string PreviewRepertoirePlayTutorial = AppResources.PreviewRepertoirePlayTutorial;
+        public static string PreviewRepertoireSendTutorial = AppResources.PreviewRepertoireSendTutorial;
+        public static string PreviewRepertoireEditRemoveTutorial = AppResources.PreviewRepertoireEditRemoveTutorial;
         #endregion
 
         #region [Privacy Policy]

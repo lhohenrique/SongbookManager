@@ -390,6 +390,21 @@
   <data name="PreviewMusicSingersKeysTutorial" xml:space="preserve">
     <value>On the Keys screen, only singers who have a registered key for that song will be displayed.</value>
   </data>
+  <data name="PreviewRepertoireEditRemoveTutorial" xml:space="preserve">
+    <value>In the secondary menu it is possible to edit or remove the repertoire.</value>
+  </data>
+  <data name="PreviewRepertoirePageTutorial" xml:space="preserve">
+    <value>This screen displays the details of the repertoire such as singer, schedules and songs with the singer's key, if defined in the song.</value>
+  </data>
+  <data name="PreviewRepertoirePlayTutorial" xml:space="preserve">
+    <value>In the top menu it is possible to enter the repertoire playback mode by clicking on the left button.</value>
+  </data>
+  <data name="PreviewRepertoireReorderTutorial" xml:space="preserve">
+    <value>It is also possible to reorder the songs in the list. To reorder, select the song you want to change position and then select the position you want it to be in.</value>
+  </data>
+  <data name="PreviewRepertoireSendTutorial" xml:space="preserve">
+    <value>By clicking on the button on the right it is possible to send this repertoire in text format.</value>
+  </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Privacy policy</value>
   </data>

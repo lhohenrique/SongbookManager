@@ -390,6 +390,21 @@
   <data name="PreviewMusicSingersKeysTutorial" xml:space="preserve">
     <value>Na tela de tons serão exibidos apenas os cantores que tem um tom registrado para essa música.</value>
   </data>
+  <data name="PreviewRepertoireEditRemoveTutorial" xml:space="preserve">
+    <value>No menu secundário é possível editar o remover o repertório.</value>
+  </data>
+  <data name="PreviewRepertoirePageTutorial" xml:space="preserve">
+    <value>Nessa tela são exibidos os detalhes do repertótio como cantor, horários e as músicas com o tom do cantor, caso estejam definidos na música.</value>
+  </data>
+  <data name="PreviewRepertoirePlayTutorial" xml:space="preserve">
+    <value>No menu do topo é possível entrar no modo de reprodução do repertório clicando no botão da esquerda.</value>
+  </data>
+  <data name="PreviewRepertoireReorderTutorial" xml:space="preserve">
+    <value>Também é possível reordar as músicas da lista. Para reordenar, seleciona a música que deseja mudar de posição e depois selecione a posição que deseja que ela fique.</value>
+  </data>
+  <data name="PreviewRepertoireSendTutorial" xml:space="preserve">
+    <value>Clicando no botão a direita é possível enviar esse repertório em formato de texto.</value>
+  </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Política de privacidade</value>
   </data>
