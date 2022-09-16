@@ -8,6 +8,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{x:Static resource:AppResources.Save}" Command="{Binding SaveRepertoireCommand}" Order="Primary" IconImageSource="save.png"/>
+        <ToolbarItem Text="{x:Static resource:AppResources.Tutorial}" Order="Secondary" Command="{Binding TutorialCommand}"/>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>

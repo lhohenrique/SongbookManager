@@ -133,6 +133,15 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fill in the repertoire information and select the songs that will be part of this repertoire..
+        /// </summary>
+        internal static string AddRepertoirePageTutorial {
+            get {
+                return ResourceManager.GetString("AddRepertoirePageTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to tarde.
         /// </summary>
         internal static string Afternoon {
@@ -813,6 +822,60 @@ namespace SongbookManager.Resx {
         internal static string PlayRepertoire {
             get {
                 return ResourceManager.GetString("PlayRepertoire", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the edit button at the top of the screen to edit the song information..
+        /// </summary>
+        internal static string PreviewMusicEditTutorial {
+            get {
+                return ResourceManager.GetString("PreviewMusicEditTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By changing the key of the song the chords will be adjusted according to the key. This change will not be saved, it will be for viewing only..
+        /// </summary>
+        internal static string PreviewMusicKeyChangeTutorial {
+            get {
+                return ResourceManager.GetString("PreviewMusicKeyChangeTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If the song has a defined version, a &apos;Play&apos; button will appear on the screen and by clicking this button you will be directed to the music playback platform..
+        /// </summary>
+        internal static string PreviewMusicPlayTutorial {
+            get {
+                return ResourceManager.GetString("PreviewMusicPlayTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the remove button to remove the song from the playlist..
+        /// </summary>
+        internal static string PreviewMusicRemoveTutorial {
+            get {
+                return ResourceManager.GetString("PreviewMusicRemoveTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you are accessing a shared list, the modification will occur in the list of those who gave you access..
+        /// </summary>
+        internal static string PreviewMusicSharedListTutorial {
+            get {
+                return ResourceManager.GetString("PreviewMusicSharedListTutorial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On the Keys screen, only singers who have a registered key for that song will be displayed..
+        /// </summary>
+        internal static string PreviewMusicSingersKeysTutorial {
+            get {
+                return ResourceManager.GetString("PreviewMusicSingersKeysTutorial", resourceCulture);
             }
         }
         

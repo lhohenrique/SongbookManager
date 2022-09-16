@@ -121,6 +121,8 @@ namespace SongbookManager.ViewModels
         #region [Commands]
         public Command SaveRepertoireCommand { get; set; }
         public Command SearchCommand { get; set; }
+
+        public Command TutorialCommand { get; set; }
         #endregion
 
         public AddEditRepertoirePageViewModel(INavigation navigation, Repertoire repertoire)
@@ -134,6 +136,7 @@ namespace SongbookManager.ViewModels
 
             SaveRepertoireCommand = new Command(async () => await SaveRepertoireActionAsync());
             SearchCommand = new Command(async () => await SearchActionAsync());
+            TutorialCommand = new Command(async () => await TutorialActionAsync());
 
             this.repertoire = repertoire;
 
@@ -252,6 +255,14 @@ namespace SongbookManager.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.UnablePerformSearch, AppResources.Ok);
             }
+        }
+
+        private async Task TutorialActionAsync()
+        {
+            string message = string.Empty;
+            message += "- " + AppResources.AddRepertoirePageTutorial;
+
+            await Application.Current.MainPage.DisplayAlert(AppResources.Tutorial, message, AppResources.Ok);
         }
         #endregion
 

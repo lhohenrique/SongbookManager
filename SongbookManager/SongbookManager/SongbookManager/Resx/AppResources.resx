@@ -141,6 +141,9 @@
   <data name="AddPeople" xml:space="preserve">
     <value>Add people</value>
   </data>
+  <data name="AddRepertoirePageTutorial" xml:space="preserve">
+    <value>Fill in the repertoire information and select the songs that will be part of this repertoire.</value>
+  </data>
   <data name="Afternoon" xml:space="preserve">
     <value>tarde</value>
   </data>
@@ -368,6 +371,24 @@
   </data>
   <data name="PlayRepertoire" xml:space="preserve">
     <value>Play repertoire</value>
+  </data>
+  <data name="PreviewMusicEditTutorial" xml:space="preserve">
+    <value>Use the edit button at the top of the screen to edit the song information.</value>
+  </data>
+  <data name="PreviewMusicKeyChangeTutorial" xml:space="preserve">
+    <value>By changing the key of the song the chords will be adjusted according to the key. This change will not be saved, it will be for viewing only.</value>
+  </data>
+  <data name="PreviewMusicPlayTutorial" xml:space="preserve">
+    <value>If the song has a defined version, a 'Play' button will appear on the screen and by clicking this button you will be directed to the music playback platform.</value>
+  </data>
+  <data name="PreviewMusicRemoveTutorial" xml:space="preserve">
+    <value>Use the remove button to remove the song from the playlist.</value>
+  </data>
+  <data name="PreviewMusicSharedListTutorial" xml:space="preserve">
+    <value>If you are accessing a shared list, the modification will occur in the list of those who gave you access.</value>
+  </data>
+  <data name="PreviewMusicSingersKeysTutorial" xml:space="preserve">
+    <value>On the Keys screen, only singers who have a registered key for that song will be displayed.</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Privacy policy</value>

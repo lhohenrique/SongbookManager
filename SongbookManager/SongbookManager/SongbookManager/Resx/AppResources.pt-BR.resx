@@ -141,6 +141,9 @@
   <data name="AddPeople" xml:space="preserve">
     <value>Adicione pessoas</value>
   </data>
+  <data name="AddRepertoirePageTutorial" xml:space="preserve">
+    <value>Preencha as informações do repertório e selecione as músicas que farão parte desse repertório.</value>
+  </data>
   <data name="Afternoon" xml:space="preserve">
     <value>tarde</value>
   </data>
@@ -368,6 +371,24 @@
   </data>
   <data name="PlayRepertoire" xml:space="preserve">
     <value>Tocar repertório</value>
+  </data>
+  <data name="PreviewMusicEditTutorial" xml:space="preserve">
+    <value>Utilize o botão de edição no topo da tela para editar as informações da música.</value>
+  </data>
+  <data name="PreviewMusicKeyChangeTutorial" xml:space="preserve">
+    <value>Ao mudar o tom da música os acordes serão ajustados de acordo com o tom. Essa alteração não será salva, será apenas para visualização.</value>
+  </data>
+  <data name="PreviewMusicPlayTutorial" xml:space="preserve">
+    <value>Se a música tiver uma versão definida vai aparecer um botão 'Tocar' na tela e ao clicar nesse botão você será direcionado para a plataforma de reprodução da música.</value>
+  </data>
+  <data name="PreviewMusicRemoveTutorial" xml:space="preserve">
+    <value>Utilize o botão de remoção para remover a música da lista de músicas.</value>
+  </data>
+  <data name="PreviewMusicSharedListTutorial" xml:space="preserve">
+    <value>Se você estiver acessando uma lista compartilhada a modificação vai ocorrer na lista de quem te deu acesso.</value>
+  </data>
+  <data name="PreviewMusicSingersKeysTutorial" xml:space="preserve">
+    <value>Na tela de tons serão exibidos apenas os cantores que tem um tom registrado para essa música.</value>
   </data>
   <data name="PrivacyPolicy" xml:space="preserve">
     <value>Política de privacidade</value>

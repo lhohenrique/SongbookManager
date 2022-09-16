@@ -151,6 +151,14 @@ namespace SongbookManager.ViewModels
                 PlayMusicAction();
             });
         }
+
+        public ICommand TutorialCommand
+        {
+            get => new Command(async () =>
+            {
+                await TutorialAction();
+            });
+        }
         #endregion
 
         public PreviewMusicPageViewModel(INavigation navigation, Music music)
@@ -216,6 +224,19 @@ namespace SongbookManager.ViewModels
             string url = music.Version;
 
             Launcher.OpenAsync(new Uri(url));
+        }
+
+        private async Task TutorialAction()
+        {
+            string message = string.Empty;
+            message += "- " + AppResources.PreviewMusicPlayTutorial;
+            message += "\n\n- " + AppResources.PreviewMusicKeyChangeTutorial;
+            message += "\n\n- " + AppResources.PreviewMusicSingersKeysTutorial;
+            message += "\n\n- " + AppResources.PreviewMusicEditTutorial;
+            message += "\n\n- " + AppResources.PreviewMusicRemoveTutorial;
+            message += "\n\n- " + AppResources.PreviewMusicSharedListTutorial;
+
+            await Application.Current.MainPage.DisplayAlert(AppResources.Tutorial, message, AppResources.Ok);
         }
         #endregion
 
