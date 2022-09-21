@@ -17,7 +17,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v11.0.99</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
@@ -54,11 +54,11 @@
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
     <AndroidLinkTool>r8</AndroidLinkTool>
-    <AndroidKeyStore>false</AndroidKeyStore>
+    <AndroidKeyStore>true</AndroidKeyStore>
     <AndroidLinkMode>None</AndroidLinkMode>
-    <AndroidSigningKeyStore>C:\Users\lho\AppData\Local\Xamarin\Mono for Android\Keystore\chave\chave.keystore</AndroidSigningKeyStore>
+    <AndroidSigningKeyStore>C:\Users\lho\AppData\Local\Xamarin\Mono for Android\Keystore\song\song.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>368869Lho</AndroidSigningStorePass>
-    <AndroidSigningKeyAlias>chave</AndroidSigningKeyAlias>
+    <AndroidSigningKeyAlias>song</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>368869Lho</AndroidSigningKeyPass>
     <AndroidPackageFormat>aab</AndroidPackageFormat>
     <AndroidUseAapt2>true</AndroidUseAapt2>

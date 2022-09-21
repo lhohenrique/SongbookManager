@@ -11,7 +11,7 @@ using System.Text;
 
 namespace SongbookManager.Droid
 {
-    [Activity(Theme = "@style/Theme.Splash", MainLauncher = true, NoHistory = true)]
+    [Activity(Theme = "@style/Theme.Splash", MainLauncher = true, NoHistory = true, Exported = true)]
     public class SplashActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
