@@ -3,6 +3,7 @@
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:resource="clr-namespace:SongbookManager.Resx"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              Style="{StaticResource BaseContentPage}"
              x:Class="SongbookManager.Views.MusicPage">
 
@@ -38,6 +39,18 @@
                         <SearchBar x:Name="MusicSearchBar" Placeholder="{x:Static resource:AppResources.Search}" Text="{Binding SearchText}"  TextChanged="MusicSearchBar_TextChanged" HorizontalOptions="FillAndExpand" />
                     </StackLayout>
 
+                    <StackLayout>
+                        <controls:MTAdView x:Name="MusicPageAds" IsVisible="true" AdsId="ca-app-pub-3940256099942544/6300978111">
+                            <controls:MTAdView.HeightRequest>
+                                <x:OnIdiom>
+                                    <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
+                                    <x:OnIdiom.Tablet>90</x:OnIdiom.Tablet>
+                                    <x:OnIdiom.Desktop>90</x:OnIdiom.Desktop>
+                                </x:OnIdiom>
+                            </controls:MTAdView.HeightRequest>
+                        </controls:MTAdView>
+                    </StackLayout>
+                    
                     <RefreshView IsRefreshing="{Binding IsUpdating, Mode=OneWay}" Command="{Binding UpdateMusicListCommand}" Padding="0,0,0,2">
                         <ListView x:Name="MusicPageMusicListListView"
                                   SeparatorVisibility="Default"
