@@ -190,11 +190,11 @@ namespace SongbookManager.ViewModels
 
                     await repertoireService.InsertRepertoire(newRepertoire);
 
-                    var result = await Application.Current.MainPage.DisplayAlert(AppResources.SendRepertoire, AppResources.WantToSendRepertoire, AppResources.Yes, AppResources.No);
-                    if (result)
-                    {
-                        await Utils.SendRepertoire(newRepertoire);
-                    }
+                    //var result = await Application.Current.MainPage.DisplayAlert(AppResources.SendRepertoire, AppResources.WantToSendRepertoire, AppResources.Yes, AppResources.No);
+                    //if (result)
+                    //{
+                    //    await Utils.SendRepertoire(newRepertoire);
+                    //}
                 }
 
                 await Navigation.PopAsync();
