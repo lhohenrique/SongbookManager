@@ -40,7 +40,7 @@
                     </StackLayout>
 
                     <StackLayout>
-                        <controls:MTAdView x:Name="MusicPageAds" IsVisible="true" AdsId="ca-app-pub-3940256099942544/6300978111">
+                        <controls:MTAdView x:Name="MusicPageAds" IsVisible="true" AdsId="ca-app-pub-4649626975914217/2317560399">
                             <controls:MTAdView.HeightRequest>
                                 <x:OnIdiom>
                                     <x:OnIdiom.Phone>50</x:OnIdiom.Phone>
