@@ -46,7 +46,7 @@ namespace SongbookManager.Services
                 SingerName = item.Object.SingerName,
                 SingerEmail = item.Object.SingerEmail,
                 Time = item.Object.Time
-            }).Where(r => r.Owner.Equals(owner)).ToList();
+            }).Where(r => r.Owner.Equals(owner)).OrderByDescending(r => r.Date).ToList();
 
             return repertoires;
         }

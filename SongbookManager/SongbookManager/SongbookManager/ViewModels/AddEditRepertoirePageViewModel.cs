@@ -241,13 +241,18 @@ namespace SongbookManager.ViewModels
 
                 MusicList.Clear();
 
+                bool isSelected = false;
                 foreach (Music music in musicListUpdated)
                 {
+                    var selectedMusic = SelectedMusics.FirstOrDefault(m => m.Name.Equals(music.Name) && m.Author.Equals(music.Author));
+                    isSelected = selectedMusic != null;
+
                     MusicList.Add(new MusicRep()
                     {
                         Name = music.Name,
                         Author = music.Author,
-                        Owner = music.Owner
+                        Owner = music.Owner,
+                        IsSelected = isSelected
                     });
                 }
             }

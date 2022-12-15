@@ -282,11 +282,11 @@
   <data name="Keys" xml:space="preserve">
     <value>Tons</value>
   </data>
-  <data name="Last Month" xml:space="preserve">
-    <value>Último mês</value>
-  </data>
   <data name="Last6Months" xml:space="preserve">
     <value>Últimos 6 meses</value>
+  </data>
+  <data name="LastMonth" xml:space="preserve">
+    <value>Último mês</value>
   </data>
   <data name="LastYear" xml:space="preserve">
     <value>Último ano</value>

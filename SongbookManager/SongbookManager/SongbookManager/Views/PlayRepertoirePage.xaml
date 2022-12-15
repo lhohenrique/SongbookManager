@@ -31,7 +31,13 @@
     <ContentPage Title="{x:Static resource:AppResources.Chords}" Style="{StaticResource BaseContentPage}">
         <ContentPage.Content>
             <ScrollView>
-                <StackLayout Padding="10" Spacing="20">
+                <StackLayout Padding="10" Spacing="10">
+                    <Label Text="{Binding Name}"
+                           Style="{StaticResource PrimaryLabel}"></Label>
+
+                    <Label Text="{Binding Author}"
+                           Style="{StaticResource SecondaryLabel}"></Label>
+                    
                     <StackLayout Orientation="Horizontal" Spacing="5">
                         <Label Text="{x:Static resource:AppResources.Key}"
                                Style="{StaticResource MediumLabel}"
