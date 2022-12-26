@@ -154,18 +154,6 @@ namespace SongbookManager.ViewModels
             {
                 string userEmail = GetSingerEmail();
 
-                foreach (MusicRep music in SelectedMusics)
-                {
-                    if (!string.IsNullOrEmpty(SelectedSinger))
-                    {
-                        var key = await keyService.GetKeyByUser(userEmail, music.Name);
-                        if (key != null)
-                        {
-                            music.SingerKey = key.Key;
-                        }
-                    }
-                }
-
                 if (repertoire != null)
                 {
                     repertoire.Date = Date;

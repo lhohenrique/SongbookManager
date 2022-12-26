@@ -55,13 +55,15 @@
                 <ListView x:Name="MusicListListView" SelectionMode="Single"
                           ItemsSource="{Binding MusicList, Mode=OneWay}"
                           ItemTapped="MusicListListView_ItemTapped"
-                          SelectedItem="{Binding SelectedMusic, Mode=TwoWay}">
+                          SelectedItem="{Binding SelectedMusic, Mode=TwoWay}"
+                          HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout BackgroundColor="Transparent"
                                              Orientation="Vertical"
-                                             Padding="0,5">
+                                             Padding="0,5"
+                                             Spacing="0">
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="{Binding Name}" Style="{StaticResource PrimaryLabel}"/>
                                         <Image Source="selected.png" IsVisible="{Binding IsSelected}" HorizontalOptions="EndAndExpand" WidthRequest="30"/>

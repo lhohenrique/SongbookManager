@@ -21,10 +21,10 @@ namespace SongbookManager.Views
             BindingContext = new PreviewRepertoirePageViewModel(Navigation, repertoire);
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             var viewModel = (PreviewRepertoirePageViewModel)BindingContext;
-            viewModel.LoadPage();
+            await viewModel.LoadPageAsync();
         }
 
         private async void RepertoireMusicsListView_ItemTapped(object sender, ItemTappedEventArgs e)

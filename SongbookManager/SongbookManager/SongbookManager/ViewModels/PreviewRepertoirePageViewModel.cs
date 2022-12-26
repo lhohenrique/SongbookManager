@@ -20,6 +20,7 @@ namespace SongbookManager.ViewModels
         public INavigation Navigation { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
         private RepertoireService repertoireService;
+        private KeyService keyService;
 
         private Repertoire repertoire;
         private bool isReordering = false;
@@ -88,6 +89,7 @@ namespace SongbookManager.ViewModels
             TutorialCommand = new Command(async () => await TutorialActionAsync());
 
             repertoireService = new RepertoireService();
+            keyService = new KeyService();
         }
 
         #region [Actions]
@@ -148,7 +150,7 @@ namespace SongbookManager.ViewModels
         #endregion
 
         #region [Public Methods]
-        public void LoadPage()
+        public async Task LoadPageAsync()
         {
             try
             {
@@ -162,7 +164,19 @@ namespace SongbookManager.ViewModels
 
                     if (repertoire.Musics != null)
                     {
-                        repertoire.Musics.ForEach(m => Musics.Add(m));
+                        foreach (MusicRep music in repertoire.Musics)
+                        {
+                            if (!string.IsNullOrEmpty(repertoire.SingerEmail))
+                            {
+                                var key = await keyService.GetKeyByUser(repertoire.SingerEmail, music.Name);
+                                if (key != null)
+                                {
+                                    music.SingerKey = key.Key;
+                                }
+                            }
+
+                            Musics.Add(music);
+                        }
                     }
                 }
             }
