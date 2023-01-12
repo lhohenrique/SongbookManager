@@ -15,6 +15,7 @@ namespace SongbookManager.Models
         public string Chords { get; set; }
         public string Tipo { get; set; }
         public string Version { get; set; }
+        public string Notes { get; set; }
         public DateTime CreationDate { get; set; }
     }
 }

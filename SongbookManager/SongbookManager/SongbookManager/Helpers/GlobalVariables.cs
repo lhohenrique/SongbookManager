@@ -13,7 +13,7 @@ namespace SongbookManager.Helpers
         #endregion
 
         #region [Email]
-        public static string Password = "368869Lho";
+        public static string Password = "owgfsoiajgoltwik";
         public static string FromEmail = "songbookmanagerapp@gmail.com";
         public static string Subject = AppResources.NewPasswordEmailSubject;
         public static string Body = AppResources.NewPasswordEmailBody;

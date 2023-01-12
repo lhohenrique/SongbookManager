@@ -337,7 +337,7 @@
     <value>New password</value>
   </data>
   <data name="NewPasswordEmailBody" xml:space="preserve">
-    <value>Hello,\n\nYour new password is: XXXXXX\n\nUse this password to log into the application. You can change it within the application.\n\nThanks,\n\nSongbook team</value>
+    <value>Hello,&lt;br /&gt;&lt;br /&gt;Your new password is: XXXXXX&lt;br /&gt;&lt;br /&gt;Use this password to log into the application. You can change it within the application.&lt;br /&gt;&lt;br /&gt;Thanks,&lt;br /&gt;&lt;br /&gt;Songbook team</value>
   </data>
   <data name="NewPasswordEmailSubject" xml:space="preserve">
     <value>New password for Song Folder Lite</value>
@@ -350,6 +350,9 @@
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
   </data>
   <data name="Ok" xml:space="preserve">
     <value>Ok</value>

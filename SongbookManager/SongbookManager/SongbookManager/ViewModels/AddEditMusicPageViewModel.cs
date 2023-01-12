@@ -104,6 +104,17 @@ namespace SongbookManager.ViewModels
             }
         }
 
+        private string notes;
+        public string Notes
+        {
+            get { return notes; }
+            set
+            {
+                notes = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Notes"));
+            }
+        }
+
         private ObservableCollection<string> keyList = new ObservableCollection<string>(){"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
         public ObservableCollection<string> KeyList
         {
@@ -180,6 +191,7 @@ namespace SongbookManager.ViewModels
                         music.Key = SelectedKey;
                         music.Lyrics = Lyrics;
                         music.Chords = Chords;
+                        music.Notes = Notes;
 
                         //await App.Database.UpdateMusic(music);
                         await musicService.UpdateMusic(music, oldName);
@@ -211,6 +223,7 @@ namespace SongbookManager.ViewModels
                             Key = SelectedKey,
                             Lyrics = Lyrics,
                             Chords = Chords,
+                            Notes = Notes,
                             CreationDate = DateTime.Now
                         };
 
@@ -280,6 +293,7 @@ namespace SongbookManager.ViewModels
                 SelectedKey = music.Key;
                 Lyrics = music.Lyrics;
                 Chords = music.Chords;
+                Notes = music.Notes;
 
                 var musicOwner = LoggedUserHelper.GetEmail();
                 var sharedUsers = await userService.GetSingers(musicOwner);
@@ -318,6 +332,7 @@ namespace SongbookManager.ViewModels
                 SelectedKey = string.Empty;
                 Lyrics = string.Empty;
                 Chords = string.Empty;
+                Notes = string.Empty;
 
                 var musicOwner = LoggedUserHelper.GetEmail();
                 var sharedUsers = await userService.GetSingers(musicOwner);

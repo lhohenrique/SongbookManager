@@ -718,7 +718,7 @@ namespace SongbookManager.Resx {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hello,\n\nYour new password is: XXXXXX\n\nUse this password to log into the application. You can change it within the application.\n\nThanks,\n\nSongbook team.
+        ///   Looks up a localized string similar to Hello,&lt;br /&gt;&lt;br /&gt;Your new password is: XXXXXX&lt;br /&gt;&lt;br /&gt;Use this password to log into the application. You can change it within the application.&lt;br /&gt;&lt;br /&gt;Thanks,&lt;br /&gt;&lt;br /&gt;Songbook team.
         /// </summary>
         internal static string NewPasswordEmailBody {
             get {
@@ -759,6 +759,15 @@ namespace SongbookManager.Resx {
         internal static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        internal static string Notes {
+            get {
+                return ResourceManager.GetString("Notes", resourceCulture);
             }
         }
         

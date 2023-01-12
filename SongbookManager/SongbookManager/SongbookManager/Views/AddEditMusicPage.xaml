@@ -90,4 +90,10 @@
             </ListView>
         </StackLayout>
     </ContentPage>
+
+    <ContentPage Title="{x:Static resource:AppResources.Notes}" Style="{StaticResource BaseContentPage}">
+        <ScrollView Padding="10">
+            <Editor Text="{Binding Notes}" AutoSize="TextChanges"></Editor>
+        </ScrollView>
+    </ContentPage>
 </TabbedPage>

@@ -90,4 +90,13 @@
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>
+
+    <ContentPage Title="{x:Static resource:AppResources.Notes}" Style="{StaticResource BaseContentPage}">
+        <ContentPage.Content>
+            <ScrollView>
+                <Label Text="{Binding Notes}" Padding="10"
+                       Style="{StaticResource MediumLabel}"></Label>
+            </ScrollView>
+        </ContentPage.Content>
+    </ContentPage>
 </TabbedPage>

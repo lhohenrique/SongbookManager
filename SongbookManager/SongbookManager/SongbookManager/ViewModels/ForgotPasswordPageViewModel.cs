@@ -69,7 +69,14 @@ namespace SongbookManager.ViewModels
                     smtpServer.UseDefaultCredentials = false;
                     smtpServer.Credentials = new NetworkCredential(GlobalVariables.FromEmail, GlobalVariables.Password);
 
-                    smtpServer.SendAsync(GlobalVariables.FromEmail, Email, GlobalVariables.Subject, GlobalVariables.Body.Replace("XXXXXX", newPassword), "xyz123d");
+                    MailMessage message = new MailMessage();
+                    message.From = new MailAddress(GlobalVariables.FromEmail);
+                    message.To.Add(Email);
+                    message.Subject = GlobalVariables.Subject;
+                    message.Body = GlobalVariables.Body.Replace("XXXXXX", newPassword);
+                    message.IsBodyHtml = true;
+
+                    smtpServer.SendAsync(message, "xyz123d");
 
                     smtpServer.SendCompleted += SmtpServer_SendCompleted;
                 }
@@ -88,17 +95,28 @@ namespace SongbookManager.ViewModels
         {
             try
             {
-                if (user != null)
+                if (e.Cancelled)
                 {
-                    user.Password = newPassword;
-                    await userService.UpdateUser(user);
+                    await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.ErrorResettingPassword, AppResources.Ok);
                 }
+                else if (e.Error != null)
+                {
+                    await Application.Current.MainPage.DisplayAlert(AppResources.Error, AppResources.ErrorResettingPassword, AppResources.Ok);
+                }
+                else
+                {
+                    if (user != null)
+                    {
+                        user.Password = newPassword;
+                        await userService.UpdateUser(user);
+                    }
 
-                await Application.Current.MainPage.DisplayAlert(AppResources.Sucess, AppResources.EmailWithNewPasswordSent, AppResources.Ok);
+                    await Application.Current.MainPage.DisplayAlert(AppResources.Sucess, AppResources.EmailWithNewPasswordSent, AppResources.Ok);
 
-                smtpServer.SendCompleted -= SmtpServer_SendCompleted;
+                    smtpServer.SendCompleted -= SmtpServer_SendCompleted;
 
-                await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                    await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+                }
             }
             catch (Exception)
             {

@@ -337,7 +337,7 @@
     <value>Nova senha</value>
   </data>
   <data name="NewPasswordEmailBody" xml:space="preserve">
-    <value>Olá,\n\nSua nova senha é: XXXXXX\n\nUtilize esta senha para logar no aplicativo. Você poderá altera-la dentro da aplicação.\n\nObrigado,\n\nEquipe Songbook</value>
+    <value>Olá,&lt;br /&gt;&lt;br /&gt;Sua nova senha é: XXXXXX&lt;br /&gt;&lt;br /&gt;Utilize esta senha para logar no aplicativo. Você poderá altera-la dentro da aplicação.&lt;br /&gt;&lt;br /&gt;Obrigado,&lt;br /&gt;&lt;br /&gt;Equipe Songbook</value>
   </data>
   <data name="NewPasswordEmailSubject" xml:space="preserve">
     <value>Nova senha de acesso para Song Folder Lite</value>
@@ -350,6 +350,9 @@
   </data>
   <data name="No" xml:space="preserve">
     <value>Não</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Anotações</value>
   </data>
   <data name="Ok" xml:space="preserve">
     <value>Ok</value>
