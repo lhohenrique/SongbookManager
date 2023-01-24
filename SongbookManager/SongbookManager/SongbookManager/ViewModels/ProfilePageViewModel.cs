@@ -70,7 +70,7 @@ namespace SongbookManager.ViewModels
             string.Empty,
             AppResources.ChangePassword,
             AppResources.Feedback,
-            AppResources.RateUs,
+            //AppResources.RateUs,
             AppResources.PrivacyPolicy,
             AppResources.Logout
         };
